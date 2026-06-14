@@ -28,26 +28,14 @@ export function StepLayout({
   return (
     <div
       className="min-h-screen flex flex-col items-center justify-center px-4 py-12"
-      style={{ background: "linear-gradient(135deg, #f8f8fc 0%, #eeeef8 50%, #f4f0ff 100%)" }}
+      style={{ background: "#FFFFFF" }}
     >
-      {/* Background orbs */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        <div
-          className="absolute rounded-full"
-          style={{ width: 500, height: 500, top: "-10%", right: "-5%", background: "rgba(139,92,246,0.06)", filter: "blur(80px)" }}
-        />
-        <div
-          className="absolute rounded-full"
-          style={{ width: 400, height: 400, bottom: "-5%", left: "-5%", background: "rgba(99,102,241,0.07)", filter: "blur(80px)" }}
-        />
-      </div>
-
       <div className="relative z-10 w-full max-w-2xl">
         {/* Progress bar */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-8 flex items-center gap-4"
+          className="mb-10 flex items-center gap-4"
         >
           {onBack && (
             <motion.button
@@ -56,9 +44,9 @@ export function StepLayout({
               whileTap={{ scale: 0.96 }}
               className="w-9 h-9 rounded-full flex items-center justify-center cursor-pointer"
               style={{
-                background: "rgba(255,255,255,0.7)",
-                border: "1px solid rgba(0,0,0,0.08)",
-                color: "#6b6b82",
+                background: "#F5F5F5",
+                border: "1px solid #E5E7EB",
+                color: "#6B7280",
                 fontSize: "1.1rem",
               }}
             >
@@ -66,14 +54,14 @@ export function StepLayout({
             </motion.button>
           )}
           <div className="flex-1">
-            <div className="flex justify-between mb-1.5" style={{ fontSize: "0.75rem", color: "#9999b0" }}>
-              <span style={{ fontWeight: 500 }}>Let's Get Started</span>
+            <div className="flex justify-between mb-2" style={{ fontSize: "0.75rem", color: "#9CA3AF" }}>
+              <span style={{ fontWeight: 500 }}>Step {stepNumber}</span>
               <span>{stepNumber} of {totalSteps}</span>
             </div>
-            <div className="rounded-full overflow-hidden" style={{ height: 4, background: "rgba(99,102,241,0.12)" }}>
+            <div className="rounded-full overflow-hidden" style={{ height: 3, background: "#F0F0F0" }}>
               <motion.div
                 className="h-full rounded-full"
-                style={{ background: "linear-gradient(90deg, #6366f1, #8b5cf6)" }}
+                style={{ background: "#007AFF" }}
                 initial={{ width: 0 }}
                 animate={{ width: `${progress}%` }}
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
@@ -95,8 +83,8 @@ export function StepLayout({
               className="mb-7"
               style={{
                 fontSize: "clamp(1.4rem, 3vw, 1.9rem)",
-                fontWeight: 650,
-                color: "#0a0a14",
+                fontWeight: 600,
+                color: "#111111",
                 letterSpacing: "-0.025em",
                 lineHeight: 1.25,
               }}
@@ -111,20 +99,19 @@ export function StepLayout({
                 <motion.button
                   onClick={onNext}
                   disabled={nextDisabled}
-                  whileHover={nextDisabled ? {} : { scale: 1.03, y: -1 }}
-                  whileTap={nextDisabled ? {} : { scale: 0.97 }}
+                  whileHover={nextDisabled ? {} : { scale: 1.02 }}
+                  whileTap={nextDisabled ? {} : { scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                  className="px-7 py-3 rounded-2xl cursor-pointer"
+                  className="px-7 py-3 rounded-[12px] cursor-pointer"
                   style={{
                     background: nextDisabled
-                      ? "rgba(99,102,241,0.3)"
-                      : "linear-gradient(135deg, #6366f1 0%, #7c3aed 100%)",
-                    color: "#ffffff",
+                      ? "#E5E7EB"
+                      : "#111111",
+                    color: nextDisabled ? "#9CA3AF" : "#FFFFFF",
                     fontSize: "0.95rem",
                     fontWeight: 600,
                     border: "none",
                     letterSpacing: "-0.01em",
-                    boxShadow: nextDisabled ? "none" : "0 4px 20px rgba(99,102,241,0.35)",
                     cursor: nextDisabled ? "not-allowed" : "pointer",
                   }}
                 >

@@ -2,13 +2,13 @@ import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
 
 const phases = [
-  { text: "Scanning existing solutions…", icon: "🔎", color: "#6366f1" },
-  { text: "Comparing market landscape…", icon: "📈", color: "#8b5cf6" },
-  { text: "Evaluating uniqueness score…", icon: "🧬", color: "#a78bfa" },
-  { text: "Identifying research gaps…", icon: "🕳️", color: "#7c3aed" },
-  { text: "Assessing feasibility…", icon: "⚖️", color: "#6366f1" },
-  { text: "Mapping opportunities…", icon: "🗺️", color: "#8b5cf6" },
-  { text: "Generating validation report…", icon: "📋", color: "#a78bfa" },
+  { text: "Scanning existing solutions…", icon: "🔎", color: "#007AFF" },
+  { text: "Comparing market landscape…", icon: "📈", color: "#34C759" },
+  { text: "Evaluating uniqueness score…", icon: "🧬", color: "#5856D6" },
+  { text: "Identifying research gaps…", icon: "🕳️", color: "#007AFF" },
+  { text: "Assessing feasibility…", icon: "⚖️", color: "#34C759" },
+  { text: "Mapping opportunities…", icon: "🗺️", color: "#5856D6" },
+  { text: "Generating validation report…", icon: "📋", color: "#007AFF" },
 ];
 
 interface Props {
@@ -53,9 +53,9 @@ export function StepValidating({ onComplete }: Props) {
   return (
     <div
       className="min-h-screen flex flex-col items-center justify-center px-4 py-12"
-      style={{ background: "linear-gradient(135deg, #0a1628 0%, #111d3a 40%, #0c1222 100%)", overflow: "hidden" }}
+      style={{ background: "#FAFAFA", overflow: "hidden" }}
     >
-      {/* Animated orbs */}
+      {/* Animated orbs — kept, Apple-toned */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
         {[...Array(5)].map((_, i) => (
           <motion.div
@@ -64,7 +64,7 @@ export function StepValidating({ onComplete }: Props) {
             style={{
               width: 220 + i * 70,
               height: 220 + i * 70,
-              background: `radial-gradient(circle, ${["rgba(34,197,94,0.12)","rgba(99,102,241,0.1)","rgba(16,185,129,0.08)"][i % 3]}, transparent 70%)`,
+              background: `radial-gradient(circle, ${["rgba(52,199,89,0.06)","rgba(0,122,255,0.05)","rgba(52,199,89,0.04)"][i % 3]}, transparent 70%)`,
               filter: "blur(50px)",
             }}
             animate={{
@@ -78,14 +78,14 @@ export function StepValidating({ onComplete }: Props) {
         ))}
       </div>
 
-      {/* Particles */}
+      {/* Particles — kept */}
       <div className="fixed inset-0 pointer-events-none" style={{ opacity: 0.25 }}>
         {[...Array(16)].map((_, i) => (
           <motion.div
             key={`p-${i}`}
             className="absolute rounded-full"
             style={{
-              width: 3, height: 3, background: "#22c55e",
+              width: 3, height: 3, background: "#34C759",
               top: `${Math.random() * 100}%`, left: `${Math.random() * 100}%`,
             }}
             animate={{ opacity: [0, 0.9, 0], scale: [0, 1, 0] }}
@@ -95,27 +95,27 @@ export function StepValidating({ onComplete }: Props) {
       </div>
 
       <div className="relative z-10 flex flex-col items-center max-w-lg w-full">
-        {/* Shield animation */}
+        {/* Shield animation — KEPT, Apple colors */}
         <div className="relative" style={{ width: 150, height: 150, marginBottom: 44 }}>
           {/* Outer pulse */}
           <motion.div
             className="absolute inset-0 rounded-full"
-            style={{ border: "2px solid rgba(34,197,94,0.15)" }}
+            style={{ border: "2px solid rgba(52,199,89,0.12)" }}
             animate={{ scale: [1, 1.2, 1], opacity: [0.4, 0, 0.4] }}
             transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
           />
           {/* Ring */}
           <motion.div
             className="absolute inset-0 rounded-full"
-            style={{ border: "1.5px solid rgba(34,197,94,0.25)" }}
+            style={{ border: "1.5px solid rgba(52,199,89,0.15)" }}
             animate={{ rotate: 360 }}
             transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
           >
             <motion.div
               className="absolute rounded-full"
               style={{
-                width: 8, height: 8, background: "#22c55e",
-                boxShadow: "0 0 14px #22c55e, 0 0 30px rgba(34,197,94,0.3)",
+                width: 8, height: 8, background: "#34C759",
+                boxShadow: "0 0 14px rgba(52,199,89,0.4), 0 0 30px rgba(52,199,89,0.15)",
                 top: -4, left: "50%", marginLeft: -4,
               }}
             />
@@ -123,15 +123,15 @@ export function StepValidating({ onComplete }: Props) {
           {/* Inner ring */}
           <motion.div
             className="absolute rounded-full"
-            style={{ inset: 25, border: "1px solid rgba(16,185,129,0.2)" }}
+            style={{ inset: 25, border: "1px solid rgba(52,199,89,0.1)" }}
             animate={{ rotate: -360 }}
             transition={{ duration: 7, repeat: Infinity, ease: "linear" }}
           >
             <motion.div
               className="absolute rounded-full"
               style={{
-                width: 6, height: 6, background: "#10b981",
-                boxShadow: "0 0 10px #10b981",
+                width: 6, height: 6, background: "#34C759",
+                boxShadow: "0 0 10px rgba(52,199,89,0.2)",
                 bottom: -3, left: "50%", marginLeft: -3,
               }}
             />
@@ -141,8 +141,7 @@ export function StepValidating({ onComplete }: Props) {
             className="absolute rounded-full flex items-center justify-center"
             style={{
               inset: 40,
-              background: "radial-gradient(circle, rgba(34,197,94,0.25), rgba(34,197,94,0.05))",
-              boxShadow: "0 0 50px rgba(34,197,94,0.25)",
+              background: "radial-gradient(circle, rgba(52,199,89,0.1), rgba(52,199,89,0.02))",
             }}
             animate={{ scale: [1, 1.12, 1] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
@@ -163,7 +162,7 @@ export function StepValidating({ onComplete }: Props) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           style={{
-            fontSize: "1.6rem", fontWeight: 700, color: "#ffffff",
+            fontSize: "1.6rem", fontWeight: 600, color: "#111111",
             letterSpacing: "-0.03em", marginBottom: 8, textAlign: "center",
           }}
         >
@@ -174,7 +173,7 @@ export function StepValidating({ onComplete }: Props) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
-          style={{ fontSize: "0.9rem", color: "rgba(255,255,255,0.4)", marginBottom: 40, textAlign: "center" }}
+          style={{ fontSize: "0.9rem", color: "#9CA3AF", marginBottom: 40, textAlign: "center" }}
         >
           Checking against existing solutions and market gaps
         </motion.p>
@@ -191,10 +190,10 @@ export function StepValidating({ onComplete }: Props) {
               className="flex items-center gap-2 justify-center"
             >
               <span style={{ fontSize: "1.1rem" }}>{phase.icon}</span>
-              <span style={{ fontSize: "0.95rem", fontWeight: 500, color: "#22c55e", letterSpacing: "-0.01em" }}>
+              <span style={{ fontSize: "0.95rem", fontWeight: 500, color: "#34C759", letterSpacing: "-0.01em" }}>
                 {phase.text}
               </span>
-              <span style={{ color: "#22c55e", opacity: 0.6, fontWeight: 500, width: 20 }}>{dots}</span>
+              <span style={{ color: "#34C759", opacity: 0.6, fontWeight: 500, width: 20 }}>{dots}</span>
             </motion.div>
           </AnimatePresence>
         </div>
@@ -203,25 +202,24 @@ export function StepValidating({ onComplete }: Props) {
         <div className="w-full" style={{ maxWidth: 360 }}>
           <div
             className="rounded-full overflow-hidden"
-            style={{ height: 6, background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.05)" }}
+            style={{ height: 4, background: "#F0F0F0" }}
           >
             <motion.div
               className="h-full rounded-full"
               style={{
-                background: "linear-gradient(90deg, #22c55e, #10b981, #059669)",
-                boxShadow: "0 0 20px rgba(34,197,94,0.5)",
+                background: "linear-gradient(90deg, #34C759, #30D158, #007AFF)",
               }}
               animate={{ width: `${progress}%` }}
               transition={{ duration: 0.3, ease: "easeOut" }}
             />
           </div>
-          <div className="flex justify-between mt-3" style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.35)" }}>
+          <div className="flex justify-between mt-3" style={{ fontSize: "0.75rem", color: "#9CA3AF" }}>
             <span style={{ fontWeight: 500 }}>Validating</span>
             <motion.span
               key={Math.floor(progress)}
               initial={{ opacity: 0.5 }}
               animate={{ opacity: 1 }}
-              style={{ fontFamily: "monospace", fontWeight: 600, color: "rgba(255,255,255,0.5)" }}
+              style={{ fontFamily: "monospace", fontWeight: 600, color: "#6B7280" }}
             >
               {Math.floor(progress)}%
             </motion.span>
@@ -230,7 +228,7 @@ export function StepValidating({ onComplete }: Props) {
 
         <motion.div
           className="mt-12 rounded-full"
-          style={{ width: 120, height: 2, background: "linear-gradient(90deg, transparent, rgba(34,197,94,0.5), transparent)" }}
+          style={{ width: 120, height: 2, background: "linear-gradient(90deg, transparent, rgba(52,199,89,0.3), transparent)" }}
           animate={{ opacity: [0.3, 0.7, 0.3], scaleX: [0.8, 1, 0.8] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         />

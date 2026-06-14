@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { useState, useRef } from "react";
-import { Sparkles, Wand2 } from "lucide-react";
+import { Wand2 } from "lucide-react";
 import { StepLayout } from "./StepLayout";
 
 interface Props {
@@ -32,28 +32,6 @@ export function Step1Idea({ value, onChange, onNext, onBack }: Props) {
     >
       {/* Textarea */}
       <div className="relative">
-        {/* Sparkle animations */}
-        {focused && (
-          <>
-            {[...Array(5)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute pointer-events-none"
-                style={{
-                  left: `${15 + i * 18}%`,
-                  top: "-10px",
-                  color: "#6366f1",
-                }}
-                initial={{ opacity: 0, y: 0, scale: 0 }}
-                animate={{ opacity: [0, 1, 0], y: -20, scale: [0, 1, 0] }}
-                transition={{ duration: 1.5, delay: i * 0.15, repeat: Infinity, repeatDelay: 2 }}
-              >
-                ✦
-              </motion.div>
-            ))}
-          </>
-        )}
-
         <motion.textarea
           ref={textareaRef}
           value={value}
@@ -62,24 +40,24 @@ export function Step1Idea({ value, onChange, onNext, onBack }: Props) {
           onBlur={() => setFocused(false)}
           placeholder="Describe your hackathon idea..."
           rows={6}
-          className="w-full rounded-2xl resize-none outline-none transition-all duration-300"
+          className="w-full rounded-[12px] resize-none outline-none transition-all duration-300"
           style={{
             padding: "1.25rem 1.4rem",
-            background: "rgba(248,248,252,0.8)",
-            border: focused ? "1.5px solid rgba(99,102,241,0.5)" : "1.5px solid rgba(0,0,0,0.07)",
+            background: "#FAFAFA",
+            border: focused ? "1.5px solid #007AFF" : "1.5px solid #E5E7EB",
             fontSize: "1rem",
-            color: "#0a0a14",
+            color: "#111111",
             lineHeight: 1.65,
-            boxShadow: focused ? "0 0 0 4px rgba(99,102,241,0.08), 0 2px 12px rgba(99,102,241,0.1)" : "0 2px 8px rgba(0,0,0,0.04)",
+            boxShadow: focused ? "0 0 0 3px rgba(0,122,255,0.1)" : "none",
           }}
-          animate={{ scale: focused ? 1.005 : 1 }}
+          animate={{ scale: focused ? 1.002 : 1 }}
           transition={{ duration: 0.2 }}
         />
 
         {/* Char count */}
         <div
           className="absolute bottom-3 right-4"
-          style={{ fontSize: "0.75rem", color: "#9999b0" }}
+          style={{ fontSize: "0.75rem", color: "#9CA3AF" }}
         >
           {value.length} chars
         </div>
@@ -87,7 +65,7 @@ export function Step1Idea({ value, onChange, onNext, onBack }: Props) {
 
       {/* AI Suggestions */}
       <div className="mt-5">
-        <div className="flex items-center gap-2 mb-3" style={{ fontSize: "0.8rem", color: "#9999b0", fontWeight: 500 }}>
+        <div className="flex items-center gap-2 mb-3" style={{ fontSize: "0.8rem", color: "#9CA3AF", fontWeight: 500 }}>
           <Wand2 size={13} />
           <span>Try one of these ideas</span>
         </div>
@@ -98,12 +76,12 @@ export function Step1Idea({ value, onChange, onNext, onBack }: Props) {
               onClick={() => onChange(s)}
               whileHover={{ scale: 1.03, y: -1 }}
               whileTap={{ scale: 0.97 }}
-              className="px-3 py-1.5 rounded-xl cursor-pointer text-left"
+              className="px-3 py-1.5 rounded-full cursor-pointer text-left"
               style={{
-                background: value === s ? "rgba(99,102,241,0.12)" : "rgba(255,255,255,0.7)",
-                border: value === s ? "1px solid rgba(99,102,241,0.3)" : "1px solid rgba(0,0,0,0.07)",
+                background: value === s ? "#111111" : "#F5F5F5",
+                border: value === s ? "1px solid #111111" : "1px solid #E5E7EB",
                 fontSize: "0.78rem",
-                color: value === s ? "#6366f1" : "#6b6b82",
+                color: value === s ? "#FFFFFF" : "#6B7280",
                 fontWeight: value === s ? 500 : 400,
               }}
             >

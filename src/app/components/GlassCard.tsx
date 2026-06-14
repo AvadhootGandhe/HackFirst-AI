@@ -11,13 +11,11 @@ export function GlassCard({ children, className = "", floating = false, style, .
   return (
     <motion.div
       {...props}
-      className={`rounded-3xl ${className}`}
+      className={`rounded-[20px] ${className}`}
       style={{
-        background: "rgba(255,255,255,0.72)",
-        backdropFilter: "blur(24px)",
-        WebkitBackdropFilter: "blur(24px)",
-        border: "1px solid rgba(255,255,255,0.6)",
-        boxShadow: "0 4px 24px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.8)",
+        background: "#FFFFFF",
+        border: "1px solid #E5E7EB",
+        boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02)",
         ...style,
       }}
       animate={floating ? { y: [0, -6, 0] } : undefined}
