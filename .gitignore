@@ -112,3 +112,5 @@ Desktop.ini
 .env.production.local
 .env.local
 .env.*.local
+backend/.env
+backend/.venv/
