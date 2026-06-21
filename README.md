@@ -1,7 +1,7 @@
 
-# Hackathon Research Platform
+# Hackathon Team Ecosystem
 
-> A polished hackathon research experience with a modern frontend, smart backend APIs, and guided product workflow.
+> An all-in-one platform for hackathon teams, combining idea discovery, collaboration, validation, planning, and execution support.
 
 ## ✨ Project Architecture
 
@@ -38,7 +38,7 @@ The frontend is built with a component-first design.
 - `src/lib/api.ts` provides the client integration layer for backend calls.
 - `src/styles/` contains global styles and utility CSS for the app theme.
 
-The UI is centered around a step-based hackathon workflow, including idea discovery, validation, research, team planning, and final review.
+The UI supports the full hackathon lifecycle: brainstorming, team coordination, validation, planning, and final review.
 
 ---
 
