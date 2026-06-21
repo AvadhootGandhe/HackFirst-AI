@@ -1,113 +1,149 @@
+<div align="center">
 
-# Hackathon Team Ecosystem
+<br />
 
-> An all-in-one platform for hackathon teams, combining idea discovery, collaboration, validation, planning, and execution support.
+# 🚀 Hackathon Team Ecosystem
 
-## ✨ Project Architecture
+### All-in-one platform for high-performance hackathon teams
 
-This repository is organized into two primary layers:
+*From first spark to final pitch — idea discovery, team collaboration, validation, planning, and AI-powered execution, unified.*
 
-1. **Frontend** - a reactive browser application built with TypeScript and modern UI primitives.
-2. **Backend** - a Python API layer with agent-driven workflows, data modeling, and integration support.
+<br />
 
----
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+[![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev)
 
-## 🧩 Architecture Overview
+[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org)
+[![LangChain](https://img.shields.io/badge/LangChain-2EB8F3?style=for-the-badge&logo=chainlink&logoColor=white)](https://www.langchain.com)
+[![Pydantic](https://img.shields.io/badge/Pydantic-E92063?style=for-the-badge&logo=pydantic&logoColor=white)](https://docs.pydantic.dev)
 
-- `src/` contains the user-facing application and reusable UI system.
-- `backend/` contains the server-side logic, agent orchestration, API endpoints, and data models.
-- `data/` may contain shared assets or persistent data used during development.
-- `tests/` contains validation scenarios for backend workflows.
+<br />
 
-The architecture is designed as a clean separation between:
-
-- **Presentation layer** (`src/app/components`)
-- **Application wiring** (`src/main.tsx` + `src/lib/api.ts`)
-- **Domain backend** (`backend/app`)
-- **Agent orchestration and workflows** (`backend/app/agents`)
-- **API surface and schema definitions** (`backend/app/api`, `backend/app/schemas`)
+</div>
 
 ---
 
-## 🖥️ Frontend Structure
+## 📖 What Is This?
 
-The frontend is built with a component-first design.
+**Hackathon Team Ecosystem** is a full-stack platform designed to supercharge hackathon teams at every stage of the process. Instead of juggling five different tools, teams get one cohesive workspace — AI-assisted brainstorming, structured project validation, task planning, and real-time collaboration, all in a single guided workflow.
 
-- `src/app/components/` contains page steps and UI views.
-- `src/app/components/ui/` contains shared design system primitives.
-- `src/lib/api.ts` provides the client integration layer for backend calls.
-- `src/styles/` contains global styles and utility CSS for the app theme.
-
-The UI supports the full hackathon lifecycle: brainstorming, team coordination, validation, planning, and final review.
+The architecture is built around a clean separation between the **presentation layer** (React + TypeScript frontend) and the **intelligence layer** (FastAPI + LangChain backend agents), making it easy to iterate on either side independently.
 
 ---
 
-## ⚙️ Backend Structure
+## ✨ Features
 
-The backend is organized into systems with focused responsibilities:
-
-- `backend/app/main.py` is the API entrypoint.
-- `backend/app/api/` defines endpoint behavior and request routing.
-- `backend/app/agents/` orchestrates agent-based state, graph logic, and workflow nodes.
-- `backend/app/models/` stores repository objects and domain models.
-- `backend/app/schemas/` defines request and response validation.
-- `backend/app/core/` includes configuration, database access, and integration glue.
-
-This setup supports a modular backend that can evolve from simple API routing into more advanced AI-assisted workflows.
+| Stage | What it does |
+|---|---|
+| 💡 **Idea Discovery** | AI-assisted brainstorming and problem space exploration |
+| 🤝 **Team Coordination** | Shared workspace for role assignment and collaboration |
+| ✅ **Project Validation** | Structured validation workflows for idea viability |
+| 🗺️ **Planning** | Task breakdown, milestone setting, and timeline planning |
+| 🤖 **AI Execution Support** | Agent-driven guidance throughout the build process |
 
 ---
 
-## 🔗 Data Flow
+## 🏗️ Architecture
 
-1. The frontend collects user intent through guided workflow steps.
-2. Requests are sent to the backend API layer.
-3. Backend agents or workflow nodes process the request using domain schemas and repositories.
-4. Responses return structured results for the UI to render.
+The project is organized into two primary layers with focused responsibilities:
 
-This flow keeps the user experience responsive while enabling extensibility in backend processing.
+```
+hackathon-team-ecosystem/
+│
+├── src/                            # Frontend — React + TypeScript
+│   ├── app/
+│   │   ├── components/             # Page steps & workflow views
+│   │   │   └── ui/                 # Shared design system primitives
+│   ├── lib/
+│   │   └── api.ts                  # Backend integration client
+│   ├── styles/                     # Global styles & theme
+│   └── main.tsx                    # App entry & wiring
+│
+├── backend/                        # Backend — Python + FastAPI
+│   └── app/
+│       ├── main.py                 # API entrypoint
+│       ├── api/                    # Endpoints & request routing
+│       ├── agents/                 # Workflow orchestration & graph logic
+│       ├── schemas/                # Request / response validation
+│       ├── models/                 # Domain objects & repositories
+│       └── core/                   # Config, database & integrations
+│
+├── data/                           # Shared assets & dev data
+└── tests/                          # Backend workflow validation
+```
 
 ---
 
-## 🚀 Tech Stack
+## 🔁 Data Flow
 
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
-![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat-square&logo=tailwind-css&logoColor=white)
-![Radix UI](https://img.shields.io/badge/Radix_UI-000000?style=flat-square&logo=radix&logoColor=white)
-![Material UI](https://img.shields.io/badge/MUI-007FFF?style=flat-square&logo=mui&logoColor=white)
+```
+User Intent  →  Guided UI Steps  →  API Layer  →  Agent Workflow  →  Rendered Results
+     🧑‍💻              📋                 🌐               🤖                  ✨
+```
 
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![Uvicorn](https://img.shields.io/badge/Uvicorn-000000?style=flat-square&logo=python&logoColor=white)
-![Pydantic](https://img.shields.io/badge/Pydantic-44B7F3?style=flat-square&logo=python&logoColor=white)
-![LangChain](https://img.shields.io/badge/LangChain-2EB8F3?style=flat-square&logo=python&logoColor=white)
+1. **Collect** — the frontend gathers user intent through guided workflow steps
+2. **Route** — requests are sent to the FastAPI backend
+3. **Process** — agents and workflow nodes handle the request using domain schemas
+4. **Return** — structured results are rendered back to the UI
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+| Technology | Role |
+|---|---|
+| **React** | UI framework |
+| **TypeScript** | Type-safe application logic |
+| **Vite** | Build tooling & dev server |
+| **Tailwind CSS** | Utility-first styling |
+| **Radix UI** | Accessible component primitives |
+| **Material UI** | Component library |
+
+### Backend
+
+| Technology | Role |
+|---|---|
+| **FastAPI** | API framework & routing |
+| **Python** | Core language |
+| **Uvicorn** | ASGI server |
+| **Pydantic** | Schema validation |
+| **LangChain** | Agent orchestration & AI workflows |
 
 ---
 
 ## 🧠 Design Principles
 
-- **Modular**: Clear folder boundaries for UI, API, agents, and models.
-- **Guided workflow**: Step-based experience for hackathon research and planning.
-- **Extensible**: Backend agents and schema-driven APIs enable growth.
-- **Polished presentation**: Modern CSS and component primitives for a refined UI.
+**🧩 Modular** — Clear folder boundaries for UI, API, agents, and models. Each layer is independently testable and replaceable.
+
+**🗺️ Guided workflow** — Step-based UX covering the full hackathon journey: brainstorming → coordination → validation → planning → review.
+
+**🔌 Extensible** — Schema-driven APIs and pluggable agent nodes make it straightforward to add new AI capabilities without touching the frontend.
+
+**💎 Polished presentation** — Modern component primitives and a refined design system for a production-quality interface, not a prototype feel.
 
 ---
 
-## 📁 Key Folders at a Glance
+## 📁 Key Entry Points
 
-- `src/app/components/` — frontend pages and workflow steps
-- `src/app/components/ui/` — shared UI primitives and theme
-- `backend/app/agents/` — workflow orchestration and graph logic
-- `backend/app/api/` — API endpoints and request handlers
-- `backend/app/core/` — platform configuration and integrations
-- `backend/app/schemas/` — typed request/response definitions
-- `backend/app/models/` — backend repository/data objects
+| File | Purpose |
+|---|---|
+| `src/main.tsx` | Frontend app bootstrapping |
+| `src/lib/api.ts` | All frontend → backend API calls |
+| `backend/app/main.py` | FastAPI app & router registration |
+| `backend/app/agents/` | LangChain agent graph & workflow nodes |
+| `backend/app/schemas/` | Pydantic request/response models |
 
 ---
 
-## 🎯 Why This Architecture
+<div align="center">
 
-This project is built to separate user-facing design from backend intelligence.
-That separation makes it easier to iterate on the frontend experience while keeping backend workflow logic isolated and testable.
-  
+<br />
+
+Built with ⚡ for the hackathon &nbsp;·&nbsp; Frontend meets AI backend
+
+</div>
