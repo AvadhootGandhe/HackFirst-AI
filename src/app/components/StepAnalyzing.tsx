@@ -2,12 +2,12 @@ import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
 
 const phases = [
-  { text: "Understanding your idea…", icon: "🧠", color: "#6366f1" },
-  { text: "Analyzing market landscape…", icon: "📊", color: "#8b5cf6" },
-  { text: "Identifying core features…", icon: "⚙️", color: "#a78bfa" },
-  { text: "Evaluating constraints…", icon: "🔍", color: "#7c3aed" },
-  { text: "Refining strategy…", icon: "🎯", color: "#6366f1" },
-  { text: "Generating insights…", icon: "✨", color: "#8b5cf6" },
+  { text: "Understanding your idea…", icon: "🧠", color: "#007AFF" },
+  { text: "Analyzing market landscape…", icon: "📊", color: "#5856D6" },
+  { text: "Identifying core features…", icon: "⚙️", color: "#AF52DE" },
+  { text: "Evaluating constraints…", icon: "🔍", color: "#007AFF" },
+  { text: "Refining strategy…", icon: "🎯", color: "#5856D6" },
+  { text: "Generating insights…", icon: "✨", color: "#AF52DE" },
 ];
 
 interface Props {
@@ -65,11 +65,11 @@ export function StepAnalyzing({ onComplete }: Props) {
     <div
       className="min-h-screen flex flex-col items-center justify-center px-4 py-12"
       style={{
-        background: "linear-gradient(135deg, #0f0a1e 0%, #1a1035 40%, #0d0b1a 100%)",
+        background: "#FAFAFA",
         overflow: "hidden",
       }}
     >
-      {/* Animated background orbs */}
+      {/* Animated background orbs — kept, Apple-toned */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
         {[...Array(6)].map((_, i) => (
           <motion.div
@@ -79,7 +79,7 @@ export function StepAnalyzing({ onComplete }: Props) {
               width: 200 + i * 80,
               height: 200 + i * 80,
               background: `radial-gradient(circle, ${
-                ["rgba(99,102,241,0.15)", "rgba(139,92,246,0.12)", "rgba(168,85,247,0.1)"][i % 3]
+                ["rgba(0,122,255,0.06)", "rgba(88,86,214,0.05)", "rgba(175,82,222,0.04)"][i % 3]
               }, transparent 70%)`,
               filter: "blur(60px)",
             }}
@@ -101,7 +101,7 @@ export function StepAnalyzing({ onComplete }: Props) {
         ))}
       </div>
 
-      {/* Particle grid */}
+      {/* Particle grid — kept, Apple-toned */}
       <div className="fixed inset-0 pointer-events-none" style={{ opacity: 0.3 }}>
         {[...Array(20)].map((_, i) => (
           <motion.div
@@ -110,7 +110,7 @@ export function StepAnalyzing({ onComplete }: Props) {
             style={{
               width: 3,
               height: 3,
-              background: "#6366f1",
+              background: "#007AFF",
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
             }}
@@ -130,13 +130,13 @@ export function StepAnalyzing({ onComplete }: Props) {
 
       {/* Main content */}
       <div className="relative z-10 flex flex-col items-center max-w-lg w-full">
-        {/* Orbital ring animation */}
+        {/* Orbital ring animation — KEPT, Apple colors */}
         <div className="relative" style={{ width: 160, height: 160, marginBottom: 48 }}>
           {/* Outer ring */}
           <motion.div
             className="absolute inset-0 rounded-full"
             style={{
-              border: "1.5px solid rgba(99,102,241,0.2)",
+              border: "1.5px solid rgba(0,122,255,0.15)",
             }}
             animate={{ rotate: 360 }}
             transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
@@ -146,8 +146,8 @@ export function StepAnalyzing({ onComplete }: Props) {
               style={{
                 width: 10,
                 height: 10,
-                background: "#6366f1",
-                boxShadow: "0 0 16px #6366f1, 0 0 40px rgba(99,102,241,0.4)",
+                background: "#007AFF",
+                boxShadow: "0 0 16px rgba(0,122,255,0.4), 0 0 40px rgba(0,122,255,0.2)",
                 top: -5,
                 left: "50%",
                 marginLeft: -5,
@@ -162,7 +162,7 @@ export function StepAnalyzing({ onComplete }: Props) {
             className="absolute rounded-full"
             style={{
               inset: 20,
-              border: "1px solid rgba(139,92,246,0.25)",
+              border: "1px solid rgba(88,86,214,0.15)",
             }}
             animate={{ rotate: -360 }}
             transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
@@ -172,8 +172,8 @@ export function StepAnalyzing({ onComplete }: Props) {
               style={{
                 width: 7,
                 height: 7,
-                background: "#8b5cf6",
-                boxShadow: "0 0 12px #8b5cf6",
+                background: "#5856D6",
+                boxShadow: "0 0 12px rgba(88,86,214,0.3)",
                 bottom: -3.5,
                 left: "50%",
                 marginLeft: -3.5,
@@ -186,7 +186,7 @@ export function StepAnalyzing({ onComplete }: Props) {
             className="absolute rounded-full"
             style={{
               inset: 40,
-              border: "1px solid rgba(168,85,247,0.2)",
+              border: "1px solid rgba(175,82,222,0.12)",
             }}
             animate={{ rotate: 360 }}
             transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
@@ -196,8 +196,8 @@ export function StepAnalyzing({ onComplete }: Props) {
               style={{
                 width: 5,
                 height: 5,
-                background: "#a78bfa",
-                boxShadow: "0 0 10px #a78bfa",
+                background: "#AF52DE",
+                boxShadow: "0 0 10px rgba(175,82,222,0.25)",
                 top: -2.5,
                 right: "50%",
                 marginRight: -2.5,
@@ -210,8 +210,7 @@ export function StepAnalyzing({ onComplete }: Props) {
             className="absolute rounded-full flex items-center justify-center"
             style={{
               inset: 50,
-              background: "radial-gradient(circle, rgba(99,102,241,0.3), rgba(99,102,241,0.05))",
-              boxShadow: "0 0 60px rgba(99,102,241,0.3)",
+              background: "radial-gradient(circle, rgba(0,122,255,0.12), rgba(0,122,255,0.02))",
             }}
             animate={{ scale: [1, 1.15, 1] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
@@ -233,8 +232,8 @@ export function StepAnalyzing({ onComplete }: Props) {
           transition={{ duration: 0.6, delay: 0.2 }}
           style={{
             fontSize: "1.6rem",
-            fontWeight: 700,
-            color: "#ffffff",
+            fontWeight: 600,
+            color: "#111111",
             letterSpacing: "-0.03em",
             marginBottom: 8,
             textAlign: "center",
@@ -250,7 +249,7 @@ export function StepAnalyzing({ onComplete }: Props) {
           transition={{ delay: 0.4 }}
           style={{
             fontSize: "0.9rem",
-            color: "rgba(255,255,255,0.45)",
+            color: "#9CA3AF",
             marginBottom: 40,
             textAlign: "center",
           }}
@@ -292,16 +291,14 @@ export function StepAnalyzing({ onComplete }: Props) {
           <div
             className="rounded-full overflow-hidden"
             style={{
-              height: 6,
-              background: "rgba(255,255,255,0.08)",
-              border: "1px solid rgba(255,255,255,0.05)",
+              height: 4,
+              background: "#F0F0F0",
             }}
           >
             <motion.div
               className="h-full rounded-full"
               style={{
-                background: "linear-gradient(90deg, #6366f1, #8b5cf6, #a78bfa)",
-                boxShadow: "0 0 20px rgba(99,102,241,0.5)",
+                background: "linear-gradient(90deg, #007AFF, #5856D6, #AF52DE)",
               }}
               animate={{ width: `${progress}%` }}
               transition={{ duration: 0.3, ease: "easeOut" }}
@@ -311,27 +308,27 @@ export function StepAnalyzing({ onComplete }: Props) {
           {/* Progress percentage */}
           <div
             className="flex justify-between mt-3"
-            style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.35)" }}
+            style={{ fontSize: "0.75rem", color: "#9CA3AF" }}
           >
             <span style={{ fontWeight: 500 }}>Processing</span>
             <motion.span
               key={Math.floor(progress)}
               initial={{ opacity: 0.5 }}
               animate={{ opacity: 1 }}
-              style={{ fontFamily: "monospace", fontWeight: 600, color: "rgba(255,255,255,0.5)" }}
+              style={{ fontFamily: "monospace", fontWeight: 600, color: "#6B7280" }}
             >
               {Math.floor(progress)}%
             </motion.span>
           </div>
         </div>
 
-        {/* Bottom shimmer line */}
+        {/* Bottom shimmer line — kept */}
         <motion.div
           className="mt-12 rounded-full"
           style={{
             width: 120,
             height: 2,
-            background: "linear-gradient(90deg, transparent, rgba(99,102,241,0.5), transparent)",
+            background: "linear-gradient(90deg, transparent, rgba(0,122,255,0.3), transparent)",
           }}
           animate={{ opacity: [0.3, 0.7, 0.3], scaleX: [0.8, 1, 0.8] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}

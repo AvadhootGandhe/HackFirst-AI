@@ -69,42 +69,16 @@ export function StepReview({ onNext, onBack }: Props) {
   };
 
   const sections: { key: keyof ReviewData; title: string; icon: string; color: string }[] = [
-    { key: "mainIdea", title: "Main Idea", icon: "💡", color: "#6366f1" },
-    { key: "features", title: "Key Features", icon: "⚙️", color: "#10b981" },
-    { key: "constraints", title: "Constraints", icon: "⚠️", color: "#f59e0b" },
+    { key: "mainIdea", title: "Main Idea", icon: "💡", color: "#007AFF" },
+    { key: "features", title: "Key Features", icon: "⚙️", color: "#34C759" },
+    { key: "constraints", title: "Constraints", icon: "⚠️", color: "#FF7A00" },
   ];
 
   return (
     <div
       className="min-h-screen flex flex-col items-center justify-center px-4 py-12"
-      style={{ background: "linear-gradient(135deg, #f8f8fc 0%, #eeeef8 50%, #f4f0ff 100%)" }}
+      style={{ background: "#FFFFFF" }}
     >
-      {/* Background orbs */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        <div
-          className="absolute rounded-full"
-          style={{
-            width: 500,
-            height: 500,
-            top: "-10%",
-            right: "-5%",
-            background: "rgba(139,92,246,0.06)",
-            filter: "blur(80px)",
-          }}
-        />
-        <div
-          className="absolute rounded-full"
-          style={{
-            width: 400,
-            height: 400,
-            bottom: "-5%",
-            left: "-5%",
-            background: "rgba(99,102,241,0.07)",
-            filter: "blur(80px)",
-          }}
-        />
-      </div>
-
       <div className="relative z-10 w-full max-w-2xl">
         {/* Header with back + progress */}
         <motion.div
@@ -118,23 +92,23 @@ export function StepReview({ onNext, onBack }: Props) {
             whileTap={{ scale: 0.96 }}
             className="w-9 h-9 rounded-full flex items-center justify-center cursor-pointer"
             style={{
-              background: "rgba(255,255,255,0.7)",
-              border: "1px solid rgba(0,0,0,0.08)",
-              color: "#6b6b82",
+              background: "#F5F5F5",
+              border: "1px solid #E5E7EB",
+              color: "#6B7280",
               fontSize: "1.1rem",
             }}
           >
             ←
           </motion.button>
           <div className="flex-1">
-            <div className="flex justify-between mb-1.5" style={{ fontSize: "0.75rem", color: "#9999b0" }}>
+            <div className="flex justify-between mb-2" style={{ fontSize: "0.75rem", color: "#9CA3AF" }}>
               <span style={{ fontWeight: 500 }}>AI Analysis Complete</span>
               <span>Review & Refine</span>
             </div>
-            <div className="rounded-full overflow-hidden" style={{ height: 4, background: "rgba(99,102,241,0.12)" }}>
+            <div className="rounded-full overflow-hidden" style={{ height: 3, background: "#F0F0F0" }}>
               <motion.div
                 className="h-full rounded-full"
-                style={{ background: "linear-gradient(90deg, #6366f1, #8b5cf6)", width: "100%" }}
+                style={{ background: "#007AFF", width: "100%" }}
                 initial={{ width: 0 }}
                 animate={{ width: "100%" }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -151,18 +125,12 @@ export function StepReview({ onNext, onBack }: Props) {
         >
           <GlassCard className="p-8 md:p-10 mb-0">
             <div className="flex items-center gap-3 mb-2">
-              <motion.span
-                style={{ fontSize: "1.5rem" }}
-                animate={{ rotate: [0, 10, -10, 0] }}
-                transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-              >
-                ✨
-              </motion.span>
+              <span style={{ fontSize: "1.5rem" }}>✨</span>
               <h2
                 style={{
                   fontSize: "clamp(1.3rem, 3vw, 1.7rem)",
-                  fontWeight: 700,
-                  color: "#0a0a14",
+                  fontWeight: 600,
+                  color: "#111111",
                   letterSpacing: "-0.025em",
                   lineHeight: 1.25,
                 }}
@@ -170,7 +138,7 @@ export function StepReview({ onNext, onBack }: Props) {
                 Here's what we found
               </h2>
             </div>
-            <p style={{ fontSize: "0.85rem", color: "#9999b0", marginBottom: 0 }}>
+            <p style={{ fontSize: "0.85rem", color: "#9CA3AF", marginBottom: 0 }}>
               Review the analysis below. Click edit to refine any section before proceeding.
             </p>
           </GlassCard>
@@ -195,9 +163,9 @@ export function StepReview({ onNext, onBack }: Props) {
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-2.5">
                       <div
-                        className="w-8 h-8 rounded-xl flex items-center justify-center"
+                        className="w-8 h-8 rounded-[10px] flex items-center justify-center"
                         style={{
-                          background: `${section.color}14`,
+                          background: "#F5F5F5",
                           fontSize: "1rem",
                         }}
                       >
@@ -206,8 +174,8 @@ export function StepReview({ onNext, onBack }: Props) {
                       <h3
                         style={{
                           fontSize: "1rem",
-                          fontWeight: 650,
-                          color: "#0a0a14",
+                          fontWeight: 600,
+                          color: "#111111",
                           letterSpacing: "-0.01em",
                         }}
                       >
@@ -220,11 +188,11 @@ export function StepReview({ onNext, onBack }: Props) {
                         onClick={() => startEdit(section.key)}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl cursor-pointer"
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full cursor-pointer"
                         style={{
-                          background: `${section.color}0d`,
-                          border: `1px solid ${section.color}25`,
-                          color: section.color,
+                          background: "transparent",
+                          border: "1px solid #E5E7EB",
+                          color: "#007AFF",
                           fontSize: "0.78rem",
                           fontWeight: 600,
                         }}
@@ -252,20 +220,20 @@ export function StepReview({ onNext, onBack }: Props) {
                           value={editBuffer}
                           onChange={(e) => setEditBuffer(e.target.value)}
                           rows={section.key === "mainIdea" ? 4 : 6}
-                          className="w-full rounded-xl p-4 mb-3 resize-none"
+                          className="w-full rounded-[12px] p-4 mb-3 resize-none"
                           style={{
-                            background: "rgba(255,255,255,0.8)",
-                            border: `1.5px solid ${section.color}40`,
+                            background: "#FAFAFA",
+                            border: "1.5px solid #007AFF",
                             outline: "none",
                             fontSize: "0.85rem",
                             lineHeight: 1.7,
-                            color: "#0a0a14",
+                            color: "#111111",
                             fontFamily: "inherit",
                           }}
                           autoFocus
                         />
                         {section.key !== "mainIdea" && (
-                          <p style={{ fontSize: "0.72rem", color: "#9999b0", marginBottom: 8 }}>
+                          <p style={{ fontSize: "0.72rem", color: "#9CA3AF", marginBottom: 8 }}>
                             One item per line
                           </p>
                         )}
@@ -274,13 +242,13 @@ export function StepReview({ onNext, onBack }: Props) {
                             onClick={cancelEdit}
                             whileHover={{ scale: 1.03 }}
                             whileTap={{ scale: 0.97 }}
-                            className="px-4 py-2 rounded-xl cursor-pointer"
+                            className="px-4 py-2 rounded-[10px] cursor-pointer"
                             style={{
-                              background: "rgba(0,0,0,0.04)",
-                              border: "1px solid rgba(0,0,0,0.08)",
+                              background: "#F5F5F5",
+                              border: "1px solid #E5E7EB",
                               fontSize: "0.8rem",
                               fontWeight: 600,
-                              color: "#6b6b82",
+                              color: "#6B7280",
                             }}
                           >
                             Cancel
@@ -289,14 +257,13 @@ export function StepReview({ onNext, onBack }: Props) {
                             onClick={saveEdit}
                             whileHover={{ scale: 1.03 }}
                             whileTap={{ scale: 0.97 }}
-                            className="px-4 py-2 rounded-xl cursor-pointer"
+                            className="px-4 py-2 rounded-[10px] cursor-pointer"
                             style={{
-                              background: section.color,
+                              background: "#111111",
                               border: "none",
                               fontSize: "0.8rem",
                               fontWeight: 600,
                               color: "#fff",
-                              boxShadow: `0 4px 12px ${section.color}35`,
                             }}
                           >
                             Save
@@ -314,7 +281,7 @@ export function StepReview({ onNext, onBack }: Props) {
                           <p
                             style={{
                               fontSize: "0.88rem",
-                              color: "#3a3a52",
+                              color: "#374151",
                               lineHeight: 1.75,
                               margin: 0,
                             }}
@@ -330,15 +297,14 @@ export function StepReview({ onNext, onBack }: Props) {
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: j * 0.05 }}
                                 className="flex items-start gap-2.5"
-                                style={{ fontSize: "0.85rem", color: "#3a3a52", lineHeight: 1.6 }}
+                                style={{ fontSize: "0.85rem", color: "#374151", lineHeight: 1.6 }}
                               >
                                 <span
                                   className="mt-1.5 flex-shrink-0 rounded-full"
                                   style={{
                                     width: 6,
                                     height: 6,
-                                    background: section.color,
-                                    opacity: 0.6,
+                                    background: "#D1D5DB",
                                     display: "inline-block",
                                   }}
                                 />
@@ -365,18 +331,17 @@ export function StepReview({ onNext, onBack }: Props) {
         >
           <motion.button
             onClick={onNext}
-            whileHover={{ scale: 1.03, y: -1 }}
-            whileTap={{ scale: 0.97 }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             transition={{ type: "spring", stiffness: 400, damping: 25 }}
-            className="px-7 py-3 rounded-2xl cursor-pointer"
+            className="px-7 py-3 rounded-[12px] cursor-pointer"
             style={{
-              background: "linear-gradient(135deg, #6366f1 0%, #7c3aed 100%)",
-              color: "#ffffff",
+              background: "#111111",
+              color: "#FFFFFF",
               fontSize: "0.95rem",
               fontWeight: 600,
               border: "none",
               letterSpacing: "-0.01em",
-              boxShadow: "0 4px 20px rgba(99,102,241,0.35)",
             }}
           >
             Looks Good, Continue →

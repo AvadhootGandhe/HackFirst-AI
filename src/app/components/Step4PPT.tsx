@@ -39,20 +39,20 @@ export function Step4PPT({ selected, onChange, onNext, onBack }: Props) {
     >
       {/* Select All */}
       <div className="flex items-center justify-between mb-4">
-        <span style={{ fontSize: "0.82rem", color: "#9999b0" }}>
+        <span style={{ fontSize: "0.82rem", color: "#9CA3AF" }}>
           {selected.length} of {pptSections.length} selected
         </span>
         <motion.button
           onClick={toggleAll}
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
-          className="px-3 py-1.5 rounded-xl cursor-pointer"
+          className="px-3 py-1.5 rounded-full cursor-pointer"
           style={{
-            background: allSelected ? "rgba(99,102,241,0.12)" : "rgba(255,255,255,0.7)",
-            border: "1px solid rgba(99,102,241,0.2)",
+            background: allSelected ? "#111111" : "#F5F5F5",
+            border: "1px solid #E5E7EB",
             fontSize: "0.78rem",
             fontWeight: 600,
-            color: "#6366f1",
+            color: allSelected ? "#FFFFFF" : "#111111",
           }}
         >
           {allSelected ? "Deselect All" : "Select All"}
@@ -71,16 +71,16 @@ export function Step4PPT({ selected, onChange, onNext, onBack }: Props) {
               transition={{ duration: 0.3, delay: i * 0.02 }}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              className="flex items-center gap-2.5 p-3 rounded-xl text-left cursor-pointer"
+              className="flex items-center gap-2.5 p-3 rounded-[12px] text-left cursor-pointer"
               style={{
-                background: isSelected ? "rgba(99,102,241,0.08)" : "rgba(255,255,255,0.55)",
-                border: isSelected ? "1px solid rgba(99,102,241,0.35)" : "1px solid rgba(0,0,0,0.07)",
+                background: isSelected ? "rgba(0,122,255,0.04)" : "#FAFAFA",
+                border: isSelected ? "1px solid #007AFF" : "1px solid #E5E7EB",
               }}
             >
               <motion.div
                 animate={{
-                  background: isSelected ? "#6366f1" : "transparent",
-                  borderColor: isSelected ? "#6366f1" : "rgba(0,0,0,0.18)",
+                  background: isSelected ? "#007AFF" : "transparent",
+                  borderColor: isSelected ? "#007AFF" : "#D1D5DB",
                 }}
                 className="w-4 h-4 rounded-md flex-shrink-0 flex items-center justify-center"
                 style={{ border: "1.5px solid", transition: "all 0.15s" }}
@@ -100,7 +100,7 @@ export function Step4PPT({ selected, onChange, onNext, onBack }: Props) {
                 style={{
                   fontSize: "0.78rem",
                   fontWeight: isSelected ? 600 : 400,
-                  color: isSelected ? "#6366f1" : "#0a0a14",
+                  color: isSelected ? "#007AFF" : "#111111",
                   letterSpacing: "-0.005em",
                 }}
               >

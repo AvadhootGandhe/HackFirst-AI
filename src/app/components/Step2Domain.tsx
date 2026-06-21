@@ -2,16 +2,16 @@ import { motion } from "motion/react";
 import { StepLayout } from "./StepLayout";
 
 const domains = [
-  { label: "AI / ML", icon: "🤖", color: "#6366f1" },
-  { label: "Healthcare", icon: "🏥", color: "#10b981" },
-  { label: "FinTech", icon: "💳", color: "#f59e0b" },
-  { label: "EdTech", icon: "📚", color: "#3b82f6" },
-  { label: "Sustainability", icon: "🌱", color: "#22c55e" },
-  { label: "Cybersecurity", icon: "🔐", color: "#ef4444" },
-  { label: "Robotics", icon: "🦾", color: "#8b5cf6" },
-  { label: "IoT", icon: "📡", color: "#06b6d4" },
-  { label: "Agriculture", icon: "🌾", color: "#84cc16" },
-  { label: "Open Innovation", icon: "💡", color: "#f97316" },
+  { label: "AI / ML", icon: "🤖" },
+  { label: "Healthcare", icon: "🏥" },
+  { label: "FinTech", icon: "💳" },
+  { label: "EdTech", icon: "📚" },
+  { label: "Sustainability", icon: "🌱" },
+  { label: "Cybersecurity", icon: "🔐" },
+  { label: "Robotics", icon: "🦾" },
+  { label: "IoT", icon: "📡" },
+  { label: "Agriculture", icon: "🌾" },
+  { label: "Open Innovation", icon: "💡" },
 ];
 
 interface Props {
@@ -47,28 +47,20 @@ export function Step2Domain({ selected, onChange, onNext, onBack }: Props) {
               transition={{ duration: 0.4, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.96 }}
-              className="relative p-4 rounded-2xl text-left cursor-pointer overflow-hidden"
+              className="relative p-4 rounded-[16px] text-left cursor-pointer overflow-hidden"
               style={{
-                background: isSelected ? `${d.color}14` : "rgba(255,255,255,0.65)",
-                border: isSelected ? `1.5px solid ${d.color}50` : "1.5px solid rgba(0,0,0,0.07)",
-                boxShadow: isSelected ? `0 4px 20px ${d.color}18` : "0 2px 8px rgba(0,0,0,0.04)",
+                background: isSelected ? "rgba(0,122,255,0.04)" : "#FAFAFA",
+                border: isSelected ? "1.5px solid #007AFF" : "1.5px solid #E5E7EB",
+                boxShadow: isSelected ? "0 2px 8px rgba(0,122,255,0.08)" : "none",
               }}
             >
-              {isSelected && (
-                <motion.div
-                  className="absolute inset-0 rounded-2xl"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  style={{ background: `radial-gradient(circle at 50% 50%, ${d.color}10, transparent 70%)` }}
-                />
-              )}
               <div className="relative z-10">
                 <div style={{ fontSize: "1.6rem", marginBottom: 6 }}>{d.icon}</div>
                 <div
                   style={{
                     fontSize: "0.85rem",
                     fontWeight: 600,
-                    color: isSelected ? d.color : "#0a0a14",
+                    color: isSelected ? "#007AFF" : "#111111",
                     letterSpacing: "-0.01em",
                   }}
                 >
@@ -82,7 +74,7 @@ export function Step2Domain({ selected, onChange, onNext, onBack }: Props) {
                   animate={{ scale: 1 }}
                   transition={{ type: "spring", stiffness: 500, damping: 25 }}
                   className="absolute top-2.5 right-2.5 w-5 h-5 rounded-full flex items-center justify-center"
-                  style={{ background: d.color, fontSize: "0.6rem", color: "#fff" }}
+                  style={{ background: "#007AFF", fontSize: "0.6rem", color: "#fff" }}
                 >
                   ✓
                 </motion.div>
@@ -97,7 +89,7 @@ export function Step2Domain({ selected, onChange, onNext, onBack }: Props) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           className="mt-4 text-sm"
-          style={{ color: "#9999b0" }}
+          style={{ color: "#9CA3AF" }}
         >
           {selected.length} domain{selected.length > 1 ? "s" : ""} selected
         </motion.p>

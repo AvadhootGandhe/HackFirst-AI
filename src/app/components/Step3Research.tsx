@@ -8,7 +8,6 @@ const researchTypes = [
     label: "Quantitative Research",
     desc: "Numerical data, statistics & measurable metrics",
     icon: "📊",
-    color: "#6366f1",
     placeholder: "e.g. What percentage of teachers don't use AI tools in classrooms?\nHow many students prefer AI-assisted learning over traditional methods?\nWhat is the average time saved using automated research tools?",
     inputLabel: "What numerical or statistical questions do you want answered?",
   },
@@ -17,7 +16,6 @@ const researchTypes = [
     label: "Qualitative Research",
     desc: "Reasons, opinions, motivations & behavioral insights",
     icon: "💬",
-    color: "#8b5cf6",
     placeholder: "e.g. Why do teachers avoid using AI in their workflow?\nWhat are the main concerns students have about AI-generated content?\nHow do researchers feel about automated literature reviews?",
     inputLabel: "What questions about reasons, opinions or experiences do you want explored?",
   },
@@ -80,24 +78,18 @@ export function Step3Research({ selected, onChange, onNext, onBack }: Props) {
                 whileTap={{ scale: 0.99 }}
                 className="w-full flex items-center gap-4 p-5 text-left cursor-pointer"
                 style={{
-                  background: isSelected
-                    ? `${r.color}0d`
-                    : "rgba(255,255,255,0.6)",
-                  border: isSelected
-                    ? `1.5px solid ${r.color}55`
-                    : "1.5px solid rgba(0,0,0,0.07)",
+                  background: isSelected ? "rgba(0,122,255,0.03)" : "#FAFAFA",
+                  border: isSelected ? "1.5px solid #007AFF" : "1.5px solid #E5E7EB",
                   borderRadius: isSelected ? "1rem 1rem 0 0" : "1rem",
-                  boxShadow: isSelected
-                    ? `0 4px 20px ${r.color}18`
-                    : "0 2px 8px rgba(0,0,0,0.04)",
+                  boxShadow: isSelected ? "0 2px 8px rgba(0,122,255,0.06)" : "none",
                   transition: "border-radius 0.3s",
                 }}
               >
                 {/* Checkbox */}
                 <motion.div
                   animate={{
-                    background: isSelected ? r.color : "transparent",
-                    borderColor: isSelected ? r.color : "rgba(0,0,0,0.2)",
+                    background: isSelected ? "#007AFF" : "transparent",
+                    borderColor: isSelected ? "#007AFF" : "#D1D5DB",
                   }}
                   className="w-5 h-5 rounded-md flex-shrink-0 flex items-center justify-center"
                   style={{ border: "2px solid", transition: "all 0.2s" }}
@@ -125,14 +117,14 @@ export function Step3Research({ selected, onChange, onNext, onBack }: Props) {
                     style={{
                       fontSize: "0.95rem",
                       fontWeight: 600,
-                      color: isSelected ? r.color : "#0a0a14",
+                      color: isSelected ? "#007AFF" : "#111111",
                       letterSpacing: "-0.01em",
                       marginBottom: 2,
                     }}
                   >
                     {r.label}
                   </div>
-                  <div style={{ fontSize: "0.8rem", color: "#9999b0" }}>
+                  <div style={{ fontSize: "0.8rem", color: "#9CA3AF" }}>
                     {r.desc}
                   </div>
                 </div>
@@ -151,8 +143,8 @@ export function Step3Research({ selected, onChange, onNext, onBack }: Props) {
                     <div
                       className="p-5 pt-4"
                       style={{
-                        background: `${r.color}08`,
-                        border: `1.5px solid ${r.color}55`,
+                        background: "rgba(0,122,255,0.02)",
+                        border: "1.5px solid #007AFF",
                         borderTop: "none",
                         borderRadius: "0 0 1rem 1rem",
                       }}
@@ -161,8 +153,8 @@ export function Step3Research({ selected, onChange, onNext, onBack }: Props) {
                         style={{
                           display: "block",
                           fontSize: "0.78rem",
-                          fontWeight: 620,
-                          color: r.color,
+                          fontWeight: 600,
+                          color: "#007AFF",
                           marginBottom: 8,
                           letterSpacing: "-0.01em",
                         }}
@@ -176,27 +168,27 @@ export function Step3Research({ selected, onChange, onNext, onBack }: Props) {
                         rows={4}
                         className="w-full rounded-xl p-4 resize-none"
                         style={{
-                          background: "rgba(255,255,255,0.85)",
-                          border: `1px solid ${r.color}25`,
+                          background: "#FFFFFF",
+                          border: "1px solid #E5E7EB",
                           outline: "none",
                           fontSize: "0.84rem",
                           lineHeight: 1.7,
-                          color: "#0a0a14",
+                          color: "#111111",
                           fontFamily: "inherit",
                         }}
                         onFocus={(e) => {
-                          e.target.style.borderColor = `${r.color}50`;
-                          e.target.style.boxShadow = `0 0 0 3px ${r.color}12`;
+                          e.target.style.borderColor = "#007AFF";
+                          e.target.style.boxShadow = "0 0 0 3px rgba(0,122,255,0.08)";
                         }}
                         onBlur={(e) => {
-                          e.target.style.borderColor = `${r.color}25`;
+                          e.target.style.borderColor = "#E5E7EB";
                           e.target.style.boxShadow = "none";
                         }}
                       />
                       <p
                         style={{
                           fontSize: "0.7rem",
-                          color: "#9999b0",
+                          color: "#9CA3AF",
                           marginTop: 6,
                           marginBottom: 0,
                         }}
@@ -217,11 +209,11 @@ export function Step3Research({ selected, onChange, onNext, onBack }: Props) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           className="mt-4 text-sm"
-          style={{ color: "#9999b0" }}
+          style={{ color: "#9CA3AF" }}
         >
           {selected.length} research type{selected.length > 1 ? "s" : ""} selected
           {!canProceed && (
-            <span style={{ color: "#f59e0b", marginLeft: 8 }}>
+            <span style={{ color: "#FF7A00", marginLeft: 8 }}>
               — add questions to continue
             </span>
           )}
@@ -230,4 +222,3 @@ export function Step3Research({ selected, onChange, onNext, onBack }: Props) {
     </StepLayout>
   );
 }
-

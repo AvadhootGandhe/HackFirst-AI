@@ -26,7 +26,7 @@ function ProgressRing({ value, size = 80, strokeWidth = 7, color = "#6366f1" }: 
   return (
     <div className="relative inline-flex items-center justify-center" style={{ width: size, height: size }}>
       <svg width={size} height={size} style={{ transform: "rotate(-90deg)" }}>
-        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="rgba(99,102,241,0.1)" strokeWidth={strokeWidth} />
+        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="rgba(0,122,255,0.1)" strokeWidth={strokeWidth} />
         <circle
           cx={size / 2}
           cy={size / 2}
@@ -40,7 +40,7 @@ function ProgressRing({ value, size = 80, strokeWidth = 7, color = "#6366f1" }: 
           style={{ transition: "stroke-dashoffset 1.5s ease 0.3s" }}
         />
       </svg>
-      <div className="absolute inset-0 flex items-center justify-center" style={{ fontSize: "1.1rem", fontWeight: 700, color: "#0a0a14" }}>
+      <div className="absolute inset-0 flex items-center justify-center" style={{ fontSize: "1.1rem", fontWeight: 700, color: "#111111" }}>
         {Math.round(clampedValue)}%
       </div>
     </div>
@@ -48,20 +48,20 @@ function ProgressRing({ value, size = 80, strokeWidth = 7, color = "#6366f1" }: 
 }
 
 const teamMembers = [
-  { name: "Alex Johnson", avatar: "#6366f1", online: true },
-  { name: "Sarah Lee", avatar: "#10b981", online: true },
-  { name: "Mike Chen", avatar: "#f59e0b", online: false },
-  { name: "Emma Davis", avatar: "#ec4899", online: true },
-  { name: "David Wilson", avatar: "#8b5cf6", online: false },
-  { name: "Sophia Patel", avatar: "#06b6d4", online: true },
+  { name: "Alex Johnson", avatar: "#007AFF", online: true },
+  { name: "Sarah Lee", avatar: "#34C759", online: true },
+  { name: "Mike Chen", avatar: "#FF7A00", online: false },
+  { name: "Emma Davis", avatar: "#AF52DE", online: true },
+  { name: "David Wilson", avatar: "#5856D6", online: false },
+  { name: "Sophia Patel", avatar: "#5AC8FA", online: true },
 ];
 
 const activityItems = [
-  { text: "Research brief generated for AI/ML domain", time: "2m ago", icon: Brain, color: "#6366f1" },
-  { text: "3 team members joined the workspace", time: "5m ago", icon: Users, color: "#10b981" },
-  { text: "Competitor analysis initiated", time: "12m ago", icon: TrendingUp, color: "#f59e0b" },
-  { text: "Presentation template selected", time: "18m ago", icon: Presentation, color: "#8b5cf6" },
-  { text: "Idea validation in progress", time: "24m ago", icon: CheckCircle2, color: "#22c55e" },
+  { text: "Research brief generated for AI/ML domain", time: "2m ago", icon: Brain, color: "#007AFF" },
+  { text: "3 team members joined the workspace", time: "5m ago", icon: Users, color: "#34C759" },
+  { text: "Competitor analysis initiated", time: "12m ago", icon: TrendingUp, color: "#FF7A00" },
+  { text: "Presentation template selected", time: "18m ago", icon: Presentation, color: "#5856D6" },
+  { text: "Idea validation in progress", time: "24m ago", icon: CheckCircle2, color: "#34C759" },
 ];
 
 const tabs: { id: Tab; label: string; icon: typeof Home }[] = [
@@ -86,14 +86,14 @@ const dummySlides = [
    AI Research Animation Card — 15-second cycle
    ────────────────────────────────────────────── */
 const researchTasks = [
-  { label: "Scanning academic papers", icon: Search, color: "#6366f1" },
-  { label: "Querying knowledge databases", icon: Database, color: "#8b5cf6" },
-  { label: "Crawling web sources", icon: Globe, color: "#06b6d4" },
-  { label: "Analyzing market trends", icon: TrendingUp, color: "#10b981" },
-  { label: "Cross-referencing citations", icon: Layers, color: "#f59e0b" },
-  { label: "Validating data integrity", icon: Shield, color: "#ec4899" },
-  { label: "Synthesizing findings", icon: Brain, color: "#6366f1" },
-  { label: "Compiling research brief", icon: FileText, color: "#22c55e" },
+  { label: "Scanning academic papers", icon: Search, color: "#007AFF" },
+  { label: "Querying knowledge databases", icon: Database, color: "#5856D6" },
+  { label: "Crawling web sources", icon: Globe, color: "#5AC8FA" },
+  { label: "Analyzing market trends", icon: TrendingUp, color: "#34C759" },
+  { label: "Cross-referencing citations", icon: Layers, color: "#FF7A00" },
+  { label: "Validating data integrity", icon: Shield, color: "#AF52DE" },
+  { label: "Synthesizing findings", icon: Brain, color: "#007AFF" },
+  { label: "Compiling research brief", icon: FileText, color: "#34C759" },
 ];
 
 const researchLogLines = [
@@ -164,32 +164,32 @@ function AIResearchAnimationCard({ onOpenResearchWindow }: { onOpenResearchWindo
   const safeResearchProgress = Number.isFinite(progress) ? Math.min(Math.max(progress, 0), 100) : 0;
   const safeTaskIndex = Math.min(Math.max(activeTaskIdx, 0), researchTasks.length - 1);
   const currentTask = researchTasks[safeTaskIndex] ?? researchTasks[0];
-  const safeTaskColor = currentTask?.color ?? "#6366f1";
+  const safeTaskColor = currentTask?.color ?? "#007AFF";
   const safeTaskLabel = currentTask?.label ?? "Research task";
   const TaskIcon = currentTask?.icon ?? Search;
   const isResearchOpenUnlocked = safeResearchProgress >= 100;
 
   return (
     <GlassCard className="p-6" style={{ overflow: "hidden" }}>
-      <span style={{ fontSize: "0.72rem", color: "#9999b0", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: 14, display: "block" }}>
+      <span style={{ fontSize: "0.72rem", color: "#9CA3AF", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: 14, display: "block" }}>
         AI Research Agent
       </span>
 
       <div className="flex items-start justify-between gap-3 mb-4">
         <div className="flex items-center gap-3">
           <div className="relative">
-            <div className="w-11 h-11 rounded-xl flex items-center justify-center" style={{ background: "linear-gradient(135deg, #6366f1, #8b5cf6)" }}>
+            <div className="w-11 h-11 rounded-xl flex items-center justify-center" style={{ background: "linear-gradient(135deg, #007AFF, #5856D6)" }}>
               <TaskIcon size={20} style={{ color: "#fff" }} />
             </div>
             {phase === "done" && (
-              <div className="absolute -top-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center" style={{ background: "#22c55e" }}>
+              <div className="absolute -top-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center" style={{ background: "#34C759" }}>
                 <CheckCircle2 size={12} style={{ color: "#fff" }} />
               </div>
             )}
           </div>
           <div>
-            <div style={{ fontSize: "0.9rem", fontWeight: 600, color: "#0a0a14" }}>HackFlow AI</div>
-            <div style={{ fontSize: "0.75rem", color: phase === "running" ? "#6366f1" : "#22c55e", fontWeight: 500 }}>
+            <div style={{ fontSize: "0.9rem", fontWeight: 600, color: "#111111" }}>HackFlow AI</div>
+            <div style={{ fontSize: "0.75rem", color: phase === "running" ? "#007AFF" : "#34C759", fontWeight: 500 }}>
               {phase === "running" ? "Researching…" : "Research complete ✓"}
             </div>
           </div>
@@ -199,15 +199,15 @@ function AIResearchAnimationCard({ onOpenResearchWindow }: { onOpenResearchWindo
           disabled={!isResearchOpenUnlocked}
           onClick={onOpenResearchWindow}
           style={{
-            background: isResearchOpenUnlocked ? "#22c55e" : "rgba(229,231,235,0.9)",
-            color: isResearchOpenUnlocked ? "#fff" : "#6b7280",
+            background: isResearchOpenUnlocked ? "#34C759" : "rgba(229,231,235,0.9)",
+            color: isResearchOpenUnlocked ? "#fff" : "#6B7280",
             border: "none",
             borderRadius: 9999,
             padding: "0.55rem 1rem",
             fontSize: "0.74rem",
             fontWeight: 700,
             cursor: isResearchOpenUnlocked ? "pointer" : "not-allowed",
-            boxShadow: isResearchOpenUnlocked ? "0 8px 20px rgba(34,197,94,0.15)" : undefined,
+            boxShadow: isResearchOpenUnlocked ? "0 8px 20px rgba(52,199,89,0.15)" : undefined,
           }}
         >
           Open
@@ -221,11 +221,11 @@ function AIResearchAnimationCard({ onOpenResearchWindow }: { onOpenResearchWindo
 
       <div className="mb-3">
         <div className="flex items-center justify-between mb-1.5">
-          <span style={{ fontSize: "0.7rem", color: "#9999b0", fontWeight: 500 }}>Progress</span>
-          <span style={{ fontSize: "0.7rem", color: "#6366f1", fontWeight: 700 }}>{Math.round(safeResearchProgress)}%</span>
+          <span style={{ fontSize: "0.7rem", color: "#9CA3AF", fontWeight: 500 }}>Progress</span>
+          <span style={{ fontSize: "0.7rem", color: "#007AFF", fontWeight: 700 }}>{Math.round(safeResearchProgress)}%</span>
         </div>
-        <div className="w-full rounded-full overflow-hidden" style={{ height: 6, background: "rgba(99,102,241,0.08)" }}>
-          <div className="h-full rounded-full" style={{ background: "linear-gradient(90deg, #6366f1, #8b5cf6, #a78bfa)", width: `${safeResearchProgress}%`, transition: "width 0.3s linear" }} />
+        <div className="w-full rounded-full overflow-hidden" style={{ height: 6, background: "rgba(0,122,255,0.08)" }}>
+          <div className="h-full rounded-full" style={{ background: "linear-gradient(90deg, #007AFF, #5856D6, #AF52DE)", width: `${safeResearchProgress}%`, transition: "width 0.3s linear" }} />
         </div>
       </div>
 
@@ -236,13 +236,13 @@ function AIResearchAnimationCard({ onOpenResearchWindow }: { onOpenResearchWindo
           return (
             <div key={task.label} className="flex items-center gap-2">
               {isDone ? (
-                <CheckCircle2 size={12} style={{ color: "#22c55e" }} />
+                <CheckCircle2 size={12} style={{ color: "#34C759" }} />
               ) : isActive ? (
                 <div className="w-3 h-3 rounded-full" style={{ background: task.color }} />
               ) : (
                 <div className="w-3 h-3 rounded-full" style={{ background: "rgba(0,0,0,0.08)" }} />
               )}
-              <span style={{ fontSize: "0.72rem", color: isDone ? "#22c55e" : isActive ? "#0a0a14" : "#c0c0d0", fontWeight: isActive ? 600 : 400, textDecoration: isDone ? "line-through" : "none" }}>
+              <span style={{ fontSize: "0.72rem", color: isDone ? "#34C759" : isActive ? "#111111" : "#D1D5DB", fontWeight: isActive ? 600 : 400, textDecoration: isDone ? "line-through" : "none" }}>
                 {task.label}
               </span>
             </div>
@@ -254,9 +254,9 @@ function AIResearchAnimationCard({ onOpenResearchWindow }: { onOpenResearchWindo
         {logLines.map((line, i) => {
           const text = typeof line === "string" ? line : "";
           return (
-            <div key={i} style={{ fontSize: "0.62rem", color: text.includes("✓") ? "#22c55e" : text.includes("[done]") ? "#22c55e" : "rgba(165,165,200,0.85)", lineHeight: 1.7, whiteSpace: "nowrap" }}>
+            <div key={i} style={{ fontSize: "0.62rem", color: text.includes("✓") ? "#34C759" : text.includes("[done]") ? "#34C759" : "rgba(165,165,200,0.85)", lineHeight: 1.7, whiteSpace: "nowrap" }}>
               {text}
-              {i === logLines.length - 1 && phase === "running" && <span style={{ color: "#6366f1", marginLeft: 4 }}>█</span>}
+              {i === logLines.length - 1 && phase === "running" && <span style={{ color: "#007AFF", marginLeft: 4 }}>█</span>}
             </div>
           );
         })}
@@ -270,13 +270,13 @@ function AIResearchAnimationCard({ onOpenResearchWindow }: { onOpenResearchWindo
    Agentic File Builder Card — 10-second cycle
    ────────────────────────────────────────────── */
 const agenticFiles = [
-  { name: "research_agent.py", icon: FileCode, color: "#6366f1", size: "2.4 KB" },
-  { name: "data_pipeline.py", icon: Code, color: "#8b5cf6", size: "1.8 KB" },
-  { name: "validation_agent.py", icon: Shield, color: "#10b981", size: "3.1 KB" },
-  { name: "synthesis_engine.py", icon: Cpu, color: "#f59e0b", size: "2.7 KB" },
-  { name: "output_formatter.py", icon: FileText, color: "#ec4899", size: "1.2 KB" },
-  { name: "agent_config.yaml", icon: Layers, color: "#06b6d4", size: "0.9 KB" },
-  { name: "orchestrator.py", icon: GitBranch, color: "#22c55e", size: "4.1 KB" },
+  { name: "research_agent.py", icon: FileCode, color: "#007AFF", size: "2.4 KB" },
+  { name: "data_pipeline.py", icon: Code, color: "#5856D6", size: "1.8 KB" },
+  { name: "validation_agent.py", icon: Shield, color: "#34C759", size: "3.1 KB" },
+  { name: "synthesis_engine.py", icon: Cpu, color: "#FF7A00", size: "2.7 KB" },
+  { name: "output_formatter.py", icon: FileText, color: "#AF52DE", size: "1.2 KB" },
+  { name: "agent_config.yaml", icon: Layers, color: "#5AC8FA", size: "0.9 KB" },
+  { name: "orchestrator.py", icon: GitBranch, color: "#34C759", size: "4.1 KB" },
 ];
 
 const terminalLines = [
@@ -356,7 +356,7 @@ function AgenticFileBuilderCard() {
 
   return (
     <GlassCard className="p-6">
-      <span style={{ fontSize: "0.72rem", color: "#9999b0", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: 14, display: "block" }}>
+      <span style={{ fontSize: "0.72rem", color: "#9CA3AF", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: 14, display: "block" }}>
         Agentic File Builder
       </span>
 
@@ -366,14 +366,14 @@ function AgenticFileBuilderCard() {
           <div className="relative">
             <div
               className="w-11 h-11 rounded-xl flex items-center justify-center"
-              style={{ background: "linear-gradient(135deg, #10b981, #06b6d4)" }}
+              style={{ background: "linear-gradient(135deg, #34C759, #5AC8FA)" }}
             >
               <Terminal size={20} style={{ color: "#fff" }} />
             </div>
             {phase === "building" && (
               <motion.div
                 className="absolute -inset-1.5 rounded-xl"
-                style={{ border: "2px solid rgba(16,185,129,0.35)" }}
+                style={{ border: "2px solid rgba(52,199,89,0.35)" }}
                 animate={{ scale: [1, 1.18, 1], opacity: [0.8, 0, 0.8] }}
                 transition={{ duration: 1.8, repeat: Infinity }}
               />
@@ -383,15 +383,15 @@ function AgenticFileBuilderCard() {
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 className="absolute -top-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center"
-                style={{ background: "#22c55e" }}
+                style={{ background: "#34C759" }}
               >
                 <CheckCircle2 size={12} style={{ color: "#fff" }} />
               </motion.div>
             )}
           </div>
           <div>
-            <div style={{ fontSize: "0.9rem", fontWeight: 600, color: "#0a0a14" }}>Agent Scaffolder</div>
-            <div style={{ fontSize: "0.75rem", color: phase === "building" ? "#10b981" : "#22c55e", fontWeight: 500 }}>
+            <div style={{ fontSize: "0.9rem", fontWeight: 600, color: "#111111" }}>Agent Scaffolder</div>
+            <div style={{ fontSize: "0.75rem", color: phase === "building" ? "#34C759" : "#34C759", fontWeight: 500 }}>
               {phase === "building" ? "Building agents…" : "All agents ready ✓"}
             </div>
           </div>
@@ -400,15 +400,15 @@ function AgenticFileBuilderCard() {
           type="button"
           disabled={!isAgentOpenUnlocked}
           style={{
-            background: isAgentOpenUnlocked ? "#22c55e" : "rgba(229,231,235,0.9)",
-            color: isAgentOpenUnlocked ? "#fff" : "#6b7280",
+            background: isAgentOpenUnlocked ? "#34C759" : "rgba(229,231,235,0.9)",
+            color: isAgentOpenUnlocked ? "#fff" : "#6B7280",
             border: "none",
             borderRadius: 9999,
             padding: "0.55rem 1rem",
             fontSize: "0.74rem",
             fontWeight: 700,
             cursor: isAgentOpenUnlocked ? "pointer" : "not-allowed",
-            boxShadow: isAgentOpenUnlocked ? "0 8px 20px rgba(34,197,94,0.15)" : undefined,
+            boxShadow: isAgentOpenUnlocked ? "0 8px 20px rgba(52,199,89,0.15)" : undefined,
           }}
         >
           Open
@@ -418,17 +418,17 @@ function AgenticFileBuilderCard() {
       {/* Progress bar */}
       <div className="mb-3">
         <div className="flex items-center justify-between mb-1.5">
-          <span style={{ fontSize: "0.7rem", color: "#9999b0", fontWeight: 500 }}>Build Progress</span>
-          <span style={{ fontSize: "0.7rem", color: "#10b981", fontWeight: 700 }}>{Math.round(safeAgentProgress)}%</span>
+          <span style={{ fontSize: "0.7rem", color: "#9CA3AF", fontWeight: 500 }}>Build Progress</span>
+          <span style={{ fontSize: "0.7rem", color: "#34C759", fontWeight: 700 }}>{Math.round(safeAgentProgress)}%</span>
         </div>
         <div
           className="w-full rounded-full overflow-hidden"
-          style={{ height: 6, background: "rgba(16,185,129,0.08)" }}
+          style={{ height: 6, background: "rgba(52,199,89,0.08)" }}
         >
           <div
             className="h-full rounded-full"
             style={{
-              background: "linear-gradient(90deg, #10b981, #06b6d4, #22d3ee)",
+               background: "linear-gradient(90deg, #34C759, #5AC8FA, #007AFF)",
               width: `${safeAgentProgress}%`,
               transition: "width 0.3s linear",
             }}
@@ -439,8 +439,8 @@ function AgenticFileBuilderCard() {
       {/* File tree */}
       <div className="mb-3 px-1">
         <div className="flex items-center gap-1.5 mb-2">
-          <FolderOpen size={13} style={{ color: "#f59e0b" }} />
-          <span style={{ fontSize: "0.72rem", fontWeight: 600, color: "#0a0a14" }}>/agents</span>
+          <FolderOpen size={13} style={{ color: "#FF7A00" }} />
+          <span style={{ fontSize: "0.72rem", fontWeight: 600, color: "#111111" }}>/agents</span>
         </div>
         <div className="space-y-0.5" style={{ paddingLeft: 16 }}>
           {agenticFiles.slice(0, visibleFiles).map((file) => {
@@ -454,11 +454,11 @@ function AgenticFileBuilderCard() {
                 className="flex items-center gap-2 py-0.5"
               >
                 <FIcon size={11} style={{ color: file.color }} />
-                <span style={{ fontSize: "0.68rem", color: "#0a0a14", fontWeight: 500, fontFamily: "'JetBrains Mono', monospace" }}>
+                <span style={{ fontSize: "0.68rem", color: "#111111", fontWeight: 500, fontFamily: "'JetBrains Mono', monospace" }}>
                   {file.name}
                 </span>
-                <span style={{ fontSize: "0.6rem", color: "#c0c0d0", marginLeft: "auto" }}>{file.size}</span>
-                <CheckCircle2 size={10} style={{ color: "#22c55e" }} />
+                <span style={{ fontSize: "0.6rem", color: "#D1D5DB", marginLeft: "auto" }}>{file.size}</span>
+                <CheckCircle2 size={10} style={{ color: "#34C759" }} />
               </motion.div>
             );
           })}
@@ -467,8 +467,8 @@ function AgenticFileBuilderCard() {
               className="flex items-center gap-2 py-0.5"
               style={{ animation: "pulse 1s infinite" }}
             >
-              <File size={11} style={{ color: "#c0c0d0" }} />
-              <span style={{ fontSize: "0.68rem", color: "#c0c0d0", fontStyle: "italic", fontFamily: "'JetBrains Mono', monospace" }}>
+              <File size={11} style={{ color: "#D1D5DB" }} />
+              <span style={{ fontSize: "0.68rem", color: "#D1D5DB", fontStyle: "italic", fontFamily: "'JetBrains Mono', monospace" }}>
                 generating…
               </span>
             </div>
@@ -497,9 +497,9 @@ function AgenticFileBuilderCard() {
               lineHeight: 1.8,
               whiteSpace: "nowrap",
               color:
-                line.type === "cmd" ? "#22d3ee"
-                : line.type === "success" ? "#22c55e"
-                : line.type === "done" ? "#22c55e"
+                 line.type === "cmd" ? "#5AC8FA"
+                 : line.type === "success" ? "#34C759"
+                 : line.type === "done" ? "#34C759"
                 : "rgba(165,165,200,0.7)",
               fontWeight: line.type === "done" ? 700 : 400,
             }}
@@ -509,7 +509,7 @@ function AgenticFileBuilderCard() {
               <motion.span
                 animate={{ opacity: [1, 0] }}
                 transition={{ duration: 0.6, repeat: Infinity }}
-                style={{ color: "#10b981" }}
+                 style={{ color: "#34C759" }}
               >
                 █
               </motion.span>
@@ -522,11 +522,11 @@ function AgenticFileBuilderCard() {
 }
 
 const architecturePhases = [
-  { label: "Concept", color: "#6366f1" },
-  { label: "Data Flow", color: "#8b5cf6" },
-  { label: "Service Mesh", color: "#22c55e" },
-  { label: "Deployment", color: "#ec4899" },
-  { label: "Review", color: "#f59e0b" },
+  { label: "Concept", color: "#007AFF" },
+  { label: "Data Flow", color: "#5856D6" },
+  { label: "Service Mesh", color: "#34C759" },
+  { label: "Deployment", color: "#AF52DE" },
+  { label: "Review", color: "#FF7A00" },
 ];
 
 function AIArchitectureBuilderCard() {
@@ -536,11 +536,11 @@ function AIArchitectureBuilderCard() {
   const [activeNodes, setActiveNodes] = useState(1);
 
   const architectureNodes = [
-    { label: "API", x: 18, y: 18, color: "#8b5cf6" },
-    { label: "DB", x: 174, y: 18, color: "#22c55e" },
-    { label: "Worker", x: 96, y: 98, color: "#6366f1" },
-    { label: "Frontend", x: 18, y: 178, color: "#ec4899" },
-    { label: "Infra", x: 174, y: 178, color: "#f59e0b" },
+    { label: "API", x: 18, y: 18, color: "#5856D6" },
+    { label: "DB", x: 174, y: 18, color: "#34C759" },
+    { label: "Worker", x: 96, y: 98, color: "#007AFF" },
+    { label: "Frontend", x: 18, y: 178, color: "#AF52DE" },
+    { label: "Infra", x: 174, y: 178, color: "#FF7A00" },
   ];
 
   useEffect(() => {
@@ -752,12 +752,12 @@ export function Dashboard({ idea, domains, team, pptSections }: DashboardProps) 
   return (
     <div
       className="min-h-screen"
-      style={{ background: "linear-gradient(135deg, #f8f8fc 0%, #eeeef8 40%, #f4f0ff 100%)" }}
+      style={{ background: "#FAFAFA" }}
     >
       {/* Background orbs */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute rounded-full" style={{ width: 600, height: 600, top: "-15%", right: "-10%", background: "rgba(139,92,246,0.06)", filter: "blur(100px)" }} />
-        <div className="absolute rounded-full" style={{ width: 500, height: 500, bottom: "-10%", left: "-8%", background: "rgba(99,102,241,0.07)", filter: "blur(100px)" }} />
+        <div className="absolute rounded-full" style={{ width: 600, height: 600, top: "-15%", right: "-10%", background: "rgba(0,122,255,0.03)", filter: "blur(100px)" }} />
+        <div className="absolute rounded-full" style={{ width: 500, height: 500, bottom: "-10%", left: "-8%", background: "rgba(88,86,214,0.03)", filter: "blur(100px)" }} />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-10">
@@ -772,15 +772,15 @@ export function Dashboard({ idea, domains, team, pptSections }: DashboardProps) 
             <div className="flex items-center gap-2 mb-1">
               <div
                 className="w-7 h-7 rounded-lg flex items-center justify-center"
-                style={{ background: "linear-gradient(135deg, #6366f1, #8b5cf6)" }}
+                style={{ background: "linear-gradient(135deg, #007AFF, #5856D6)" }}
               >
                 <Zap size={14} style={{ color: "#fff" }} />
               </div>
-              <span style={{ fontSize: "0.82rem", color: "#9999b0", fontWeight: 600, letterSpacing: "0.05em", textTransform: "uppercase" }}>
-                HackFlow AI
+              <span style={{ fontSize: "0.82rem", color: "#9CA3AF", fontWeight: 600, letterSpacing: "0.05em", textTransform: "uppercase" }}>
+                HackFirst AI
               </span>
             </div>
-            <h1 style={{ fontSize: "1.8rem", fontWeight: 700, color: "#0a0a14", letterSpacing: "-0.03em", lineHeight: 1.2 }}>
+            <h1 style={{ fontSize: "1.8rem", fontWeight: 600, color: "#111111", letterSpacing: "-0.03em", lineHeight: 1.2 }}>
               Research Workspace
             </h1>
           </div>
@@ -791,17 +791,16 @@ export function Dashboard({ idea, domains, team, pptSections }: DashboardProps) 
             <div
               className="px-4 py-2 rounded-xl flex items-center gap-2 cursor-pointer"
               style={{
-                background: "rgba(255,255,255,0.7)",
-                border: "1px solid rgba(0,0,0,0.07)",
+                background: "#FFFFFF",
+                border: "1px solid #E5E7EB",
                 fontSize: "0.82rem",
-                color: "#6b6b82",
+                color: "#6B7280",
                 fontWeight: 500,
-                backdropFilter: "blur(12px)",
               }}
             >
               <Activity size={14} />
               <span>Live</span>
-              <div className="w-2 h-2 rounded-full" style={{ background: "#22c55e" }} />
+              <div className="w-2 h-2 rounded-full" style={{ background: "#34C759" }} />
             </div>
           </motion.div>
         </motion.div>
@@ -816,9 +815,8 @@ export function Dashboard({ idea, domains, team, pptSections }: DashboardProps) 
           <div
             className="inline-flex items-center gap-1 p-1 rounded-2xl"
             style={{
-              background: "rgba(255,255,255,0.7)",
-              border: "1px solid rgba(0,0,0,0.07)",
-              backdropFilter: "blur(16px)",
+              background: "#F5F5F5",
+              border: "1px solid #E5E7EB",
             }}
           >
             {tabs.map((tab) => {
@@ -833,10 +831,10 @@ export function Dashboard({ idea, domains, team, pptSections }: DashboardProps) 
                     background: "transparent",
                     fontSize: "0.85rem",
                     fontWeight: isActive ? 620 : 500,
-                    color: isActive ? "#0a0a14" : "#9999b0",
+                    color: isActive ? "#111111" : "#9CA3AF",
                     zIndex: 1,
                   }}
-                  whileHover={!isActive ? { color: "#6b6b82" } : {}}
+                  whileHover={!isActive ? { color: "#6B7280" } : {}}
                   whileTap={{ scale: 0.97 }}
                 >
                   {isActive && (
@@ -879,14 +877,14 @@ export function Dashboard({ idea, domains, team, pptSections }: DashboardProps) 
                 <GlassCard className="p-6 h-full">
                   <div className="flex items-start justify-between mb-4">
                     <div>
-                      <span style={{ fontSize: "0.72rem", color: "#9999b0", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase" }}>Project Overview</span>
-                      <h2 style={{ fontSize: "1.25rem", fontWeight: 700, color: "#0a0a14", letterSpacing: "-0.025em", marginTop: 4, lineHeight: 1.3 }}>
+                      <span style={{ fontSize: "0.72rem", color: "#9CA3AF", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase" }}>Project Overview</span>
+                      <h2 style={{ fontSize: "1.25rem", fontWeight: 600, color: "#111111", letterSpacing: "-0.025em", marginTop: 4, lineHeight: 1.3 }}>
                         {displayIdea || "AI-powered mental health companion"}
                       </h2>
                     </div>
                     <div
                       className="px-3 py-1 rounded-full"
-                      style={{ background: "rgba(34,197,94,0.1)", border: "1px solid rgba(34,197,94,0.25)", fontSize: "0.72rem", color: "#16a34a", fontWeight: 600 }}
+                      style={{ background: "rgba(52,199,89,0.08)", border: "1px solid rgba(52,199,89,0.2)", fontSize: "0.72rem", color: "#34C759", fontWeight: 600 }}
                     >
                       Active
                     </div>
@@ -897,7 +895,7 @@ export function Dashboard({ idea, domains, team, pptSections }: DashboardProps) 
                       <span
                         key={d}
                         className="px-2.5 py-1 rounded-lg"
-                        style={{ background: "rgba(99,102,241,0.1)", fontSize: "0.75rem", color: "#6366f1", fontWeight: 500 }}
+                        style={{ background: "rgba(0,122,255,0.06)", fontSize: "0.75rem", color: "#007AFF", fontWeight: 500 }}
                       >
                         {d}
                       </span>
@@ -906,18 +904,18 @@ export function Dashboard({ idea, domains, team, pptSections }: DashboardProps) 
 
                   <div className="grid grid-cols-3 gap-3">
                     {[
-                      { label: "Research Depth", value: "Advanced", icon: Brain, color: "#6366f1" },
-                      { label: "PPT Sections", value: `${pptSections.length || 12}`, icon: Presentation, color: "#8b5cf6" },
-                      { label: "Team Size", value: `${team.length || 3}`, icon: Users, color: "#10b981" },
+                      { label: "Research Depth", value: "Advanced", icon: Brain, color: "#007AFF" },
+                      { label: "PPT Sections", value: `${pptSections.length || 12}`, icon: Presentation, color: "#5856D6" },
+                      { label: "Team Size", value: `${team.length || 3}`, icon: Users, color: "#34C759" },
                     ].map((s) => (
                       <div
                         key={s.label}
                         className="p-3 rounded-2xl"
-                        style={{ background: "rgba(248,248,252,0.8)", border: "1px solid rgba(0,0,0,0.06)" }}
+                        style={{ background: "#FAFAFA", border: "1px solid #E5E7EB" }}
                       >
                         <s.icon size={16} style={{ color: s.color, marginBottom: 6 }} />
-                        <div style={{ fontSize: "1.1rem", fontWeight: 700, color: "#0a0a14" }}>{s.value}</div>
-                        <div style={{ fontSize: "0.72rem", color: "#9999b0" }}>{s.label}</div>
+                        <div style={{ fontSize: "1.1rem", fontWeight: 700, color: "#111111" }}>{s.value}</div>
+                        <div style={{ fontSize: "0.72rem", color: "#9CA3AF" }}>{s.label}</div>
                       </div>
                     ))}
                   </div>
@@ -931,14 +929,14 @@ export function Dashboard({ idea, domains, team, pptSections }: DashboardProps) 
                 transition={{ duration: 0.6, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
               >
                 <GlassCard className="p-6 h-full flex flex-col">
-                  <span style={{ fontSize: "0.72rem", color: "#9999b0", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: 16, display: "block" }}>
+                  <span style={{ fontSize: "0.72rem", color: "#9CA3AF", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: 16, display: "block" }}>
                     Research Progress
                   </span>
                   <div className="flex-1 flex flex-col items-center justify-center gap-4">
                     <ProgressRing value={researchProgress} size={100} strokeWidth={8} />
                     <div className="text-center">
-                      <div style={{ fontSize: "0.85rem", fontWeight: 600, color: "#0a0a14" }}>Research Complete</div>
-                      <div style={{ fontSize: "0.75rem", color: "#9999b0" }}>Gathering market data…</div>
+                      <div style={{ fontSize: "0.85rem", fontWeight: 600, color: "#111111" }}>Research Complete</div>
+                      <div style={{ fontSize: "0.75rem", color: "#9CA3AF" }}>Gathering market data…</div>
                     </div>
                   </div>
                 </GlassCard>
@@ -973,33 +971,33 @@ export function Dashboard({ idea, domains, team, pptSections }: DashboardProps) 
                     transition={{ duration: 0.45, delay: 0.4 }}
                   >
                     <GlassCard className="p-6">
-                      <span style={{ fontSize: "0.72rem", color: "#9999b0", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: 12, display: "block" }}>
+                      <span style={{ fontSize: "0.72rem", color: "#9CA3AF", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: 12, display: "block" }}>
                         Presentation Builder
                       </span>
 
                       <div className="flex items-center justify-between gap-3 mb-4">
                         <div className="flex items-center gap-3">
-                          <ProgressRing value={pptProgress} size={60} strokeWidth={6} color="#8b5cf6" />
+                          <ProgressRing value={pptProgress} size={60} strokeWidth={6} color="#5856D6" />
                           <div>
                             <div style={{ fontSize: "0.9rem", fontWeight: 600, color: "#0a0a14" }}>
                               {pptSections.length || 8} sections ready
                             </div>
-                            <div style={{ fontSize: "0.75rem", color: "#9999b0" }}>Building slides…</div>
+                            <div style={{ fontSize: "0.75rem", color: "#9CA3AF" }}>Building slides…</div>
                           </div>
                         </div>
                         <button
                           type="button"
                           disabled={!isPresentationOpenUnlocked}
                           style={{
-                            background: isPresentationOpenUnlocked ? "#22c55e" : "rgba(229,231,235,0.9)",
-                            color: isPresentationOpenUnlocked ? "#fff" : "#6b7280",
+                            background: isPresentationOpenUnlocked ? "#34C759" : "rgba(229,231,235,0.9)",
+                            color: isPresentationOpenUnlocked ? "#fff" : "#6B7280",
                             border: "none",
                             borderRadius: 9999,
                             padding: "0.55rem 1rem",
                             fontSize: "0.74rem",
                             fontWeight: 700,
                             cursor: isPresentationOpenUnlocked ? "pointer" : "not-allowed",
-                            boxShadow: isPresentationOpenUnlocked ? "0 8px 20px rgba(34,197,94,0.15)" : undefined,
+                            boxShadow: isPresentationOpenUnlocked ? "0 8px 20px rgba(52,199,89,0.15)" : undefined,
                           }}
                         >
                           Open
@@ -1011,10 +1009,10 @@ export function Dashboard({ idea, domains, team, pptSections }: DashboardProps) 
                           <div key={s} className="flex items-center gap-2">
                             <div
                               className="w-1.5 h-1.5 rounded-full"
-                              style={{ background: i < 2 ? "#22c55e" : "rgba(99,102,241,0.3)" }}
+                              style={{ background: i < 2 ? "#34C759" : "rgba(0,122,255,0.3)" }}
                             />
-                            <span style={{ fontSize: "0.75rem", color: i < 2 ? "#16a34a" : "#9999b0" }}>{s}</span>
-                            {i < 2 && <CheckCircle2 size={11} style={{ color: "#22c55e", marginLeft: "auto" }} />}
+                            <span style={{ fontSize: "0.75rem", color: i < 2 ? "#34C759" : "#9CA3AF" }}>{s}</span>
+                            {i < 2 && <CheckCircle2 size={11} style={{ color: "#34C759", marginLeft: "auto" }} />}
                           </div>
                         ))}
                       </div>
@@ -1025,9 +1023,9 @@ export function Dashboard({ idea, domains, team, pptSections }: DashboardProps) 
                         whileTap={{ scale: 0.97 }}
                         className="w-full py-2.5 rounded-xl cursor-pointer flex items-center justify-center gap-2"
                         style={{
-                          background: "rgba(139,92,246,0.1)",
-                          border: "1.5px solid rgba(139,92,246,0.3)",
-                          color: "#8b5cf6",
+                          background: "rgba(88,86,214,0.06)",
+                          border: "1.5px solid rgba(88,86,214,0.2)",
+                          color: "#5856D6",
                           fontSize: "0.82rem",
                           fontWeight: 600,
                         }}
@@ -1056,10 +1054,10 @@ export function Dashboard({ idea, domains, team, pptSections }: DashboardProps) 
               >
                 <GlassCard className="p-6">
                   <div className="flex items-center justify-between mb-4">
-                    <span style={{ fontSize: "0.72rem", color: "#9999b0", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase" }}>
+                    <span style={{ fontSize: "0.72rem", color: "#9CA3AF", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase" }}>
                       Team Members
                     </span>
-                    <span style={{ fontSize: "0.72rem", color: "#6366f1", fontWeight: 600 }}>
+                    <span style={{ fontSize: "0.72rem", color: "#007AFF", fontWeight: 600 }}>
                       {teamMembers.filter(t => t.online).length} online
                     </span>
                   </div>
@@ -1082,10 +1080,10 @@ export function Dashboard({ idea, domains, team, pptSections }: DashboardProps) 
                           </div>
                           <div
                             className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full border-2 border-white"
-                            style={{ background: member.online ? "#22c55e" : "#d1d5db" }}
+                            style={{ background: member.online ? "#34C759" : "#D1D5DB" }}
                           />
                         </div>
-                        <div style={{ fontSize: "0.82rem", fontWeight: 500, color: "#0a0a14" }}>{member.name}</div>
+                        <div style={{ fontSize: "0.82rem", fontWeight: 500, color: "#111111" }}>{member.name}</div>
                       </motion.div>
                     ))}
                   </div>
@@ -1101,10 +1099,10 @@ export function Dashboard({ idea, domains, team, pptSections }: DashboardProps) 
               >
                 <GlassCard className="p-6">
                   <div className="flex items-center justify-between mb-5">
-                    <span style={{ fontSize: "0.72rem", color: "#9999b0", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase" }}>
+                    <span style={{ fontSize: "0.72rem", color: "#9CA3AF", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase" }}>
                       Recent Activity
                     </span>
-                    <span style={{ fontSize: "0.72rem", color: "#6366f1", fontWeight: 600, cursor: "pointer" }}>
+                    <span style={{ fontSize: "0.72rem", color: "#007AFF", fontWeight: 600, cursor: "pointer" }}>
                       View all →
                     </span>
                   </div>
@@ -1117,7 +1115,7 @@ export function Dashboard({ idea, domains, team, pptSections }: DashboardProps) 
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5 + i * 0.06 }}
                         className="flex items-start gap-3 p-3 rounded-xl"
-                        style={{ background: "rgba(248,248,252,0.8)", border: "1px solid rgba(0,0,0,0.05)" }}
+                        style={{ background: "#FAFAFA", border: "1px solid #E5E7EB" }}
                       >
                         <div
                           className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"
@@ -1126,8 +1124,8 @@ export function Dashboard({ idea, domains, team, pptSections }: DashboardProps) 
                           <item.icon size={13} style={{ color: item.color }} />
                         </div>
                         <div>
-                          <div style={{ fontSize: "0.78rem", color: "#0a0a14", fontWeight: 500, lineHeight: 1.4 }}>{item.text}</div>
-                          <div style={{ fontSize: "0.68rem", color: "#9999b0", marginTop: 2 }}>{item.time}</div>
+                          <div style={{ fontSize: "0.78rem", color: "#111111", fontWeight: 500, lineHeight: 1.4 }}>{item.text}</div>
+                          <div style={{ fontSize: "0.68rem", color: "#9CA3AF", marginTop: 2 }}>{item.time}</div>
                         </div>
                       </motion.div>
                     ))}
@@ -1154,14 +1152,14 @@ export function Dashboard({ idea, domains, team, pptSections }: DashboardProps) 
               >
                 <GlassCard className="p-5">
                   <div className="flex items-center justify-between mb-4">
-                    <span style={{ fontSize: "0.72rem", color: "#9999b0", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase" }}>
+                    <span style={{ fontSize: "0.72rem", color: "#9CA3AF", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase" }}>
                       Slides ({dummySlides.length})
                     </span>
                     <motion.button
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                       className="w-7 h-7 rounded-lg flex items-center justify-center cursor-pointer"
-                      style={{ background: "rgba(99,102,241,0.1)", border: "none", color: "#6366f1" }}
+                      style={{ background: "rgba(0,122,255,0.06)", border: "none", color: "#007AFF" }}
                     >
                       <Plus size={14} />
                     </motion.button>
@@ -1178,15 +1176,15 @@ export function Dashboard({ idea, domains, team, pptSections }: DashboardProps) 
                         whileHover={{ x: 2 }}
                         className="w-full flex items-center gap-3 p-3 rounded-xl text-left cursor-pointer"
                         style={{
-                          background: selectedSlide === i ? "rgba(99,102,241,0.08)" : "transparent",
-                          border: selectedSlide === i ? "1px solid rgba(99,102,241,0.2)" : "1px solid transparent",
+                          background: selectedSlide === i ? "rgba(0,122,255,0.04)" : "transparent",
+                          border: selectedSlide === i ? "1px solid rgba(0,122,255,0.15)" : "1px solid transparent",
                         }}
                       >
                         <div
                           className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
                           style={{
-                            background: selectedSlide === i ? "linear-gradient(135deg, #6366f1, #8b5cf6)" : "rgba(0,0,0,0.04)",
-                            color: selectedSlide === i ? "#fff" : "#9999b0",
+                            background: selectedSlide === i ? "linear-gradient(135deg, #007AFF, #5856D6)" : "rgba(0,0,0,0.04)",
+                            color: selectedSlide === i ? "#fff" : "#9CA3AF",
                             fontSize: "0.7rem",
                             fontWeight: 700,
                           }}
@@ -1194,10 +1192,10 @@ export function Dashboard({ idea, domains, team, pptSections }: DashboardProps) 
                           {i + 1}
                         </div>
                         <div className="flex-1 min-w-0">
-                          <div style={{ fontSize: "0.8rem", fontWeight: 600, color: "#0a0a14", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                          <div style={{ fontSize: "0.8rem", fontWeight: 600, color: "#111111", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
                             {slide.title}
                           </div>
-                          <div style={{ fontSize: "0.68rem", color: "#9999b0", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                          <div style={{ fontSize: "0.68rem", color: "#9CA3AF", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
                             {slide.subtitle}
                           </div>
                         </div>
@@ -1221,10 +1219,10 @@ export function Dashboard({ idea, domains, team, pptSections }: DashboardProps) 
                 <GlassCard className="p-6 mb-4">
                   <div className="flex items-center justify-between mb-5">
                     <div>
-                      <span style={{ fontSize: "0.72rem", color: "#9999b0", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase" }}>
+                      <span style={{ fontSize: "0.72rem", color: "#9CA3AF", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase" }}>
                         Slide {selectedSlide + 1} of {dummySlides.length}
                       </span>
-                      <h2 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#0a0a14", letterSpacing: "-0.02em", marginTop: 4 }}>
+                      <h2 style={{ fontSize: "1.2rem", fontWeight: 600, color: "#111111", letterSpacing: "-0.02em", marginTop: 4 }}>
                         {dummySlides[selectedSlide].title}
                       </h2>
                     </div>
@@ -1248,13 +1246,13 @@ export function Dashboard({ idea, domains, team, pptSections }: DashboardProps) 
                     className="rounded-2xl flex items-center justify-center mb-5"
                     style={{
                       aspectRatio: "16/9",
-                      background: "linear-gradient(145deg, #1a1035, #0f0a1e)",
-                      border: "1px solid rgba(99,102,241,0.15)",
+                      background: "linear-gradient(145deg, #111827, #0C111D)",
+                      border: "1px solid rgba(0,122,255,0.12)",
                       overflow: "hidden",
                       position: "relative",
                     }}
                   >
-                    <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(circle at 30% 40%, rgba(99,102,241,0.12), transparent 60%)" }} />
+                    <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(circle at 30% 40%, rgba(0,122,255,0.08), transparent 60%)" }} />
                     <div className="text-center relative z-10 px-8">
                       <motion.div
                         key={selectedSlide}
@@ -1279,7 +1277,7 @@ export function Dashboard({ idea, domains, team, pptSections }: DashboardProps) 
                       whileTap={{ scale: 0.97 }}
                       className="flex-1 py-2.5 rounded-xl cursor-pointer flex items-center justify-center gap-2"
                       style={{
-                        background: "linear-gradient(135deg, #6366f1, #7c3aed)",
+                        background: "#111111",
                         border: "none",
                         color: "#fff",
                         fontSize: "0.82rem",
@@ -1324,7 +1322,7 @@ export function Dashboard({ idea, domains, team, pptSections }: DashboardProps) 
 
                 {/* Slide notes */}
                 <GlassCard className="p-5">
-                  <span style={{ fontSize: "0.72rem", color: "#9999b0", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: 10, display: "block" }}>
+                  <span style={{ fontSize: "0.72rem", color: "#9CA3AF", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: 10, display: "block" }}>
                     Speaker Notes
                   </span>
                   <textarea
@@ -1332,12 +1330,12 @@ export function Dashboard({ idea, domains, team, pptSections }: DashboardProps) 
                     rows={3}
                     className="w-full rounded-xl p-4 resize-none"
                     style={{
-                      background: "rgba(255,255,255,0.6)",
-                      border: "1px solid rgba(0,0,0,0.06)",
+                      background: "#FAFAFA",
+                      border: "1px solid #E5E7EB",
                       outline: "none",
                       fontSize: "0.82rem",
                       lineHeight: 1.6,
-                      color: "#0a0a14",
+                      color: "#111111",
                       fontFamily: "inherit",
                     }}
                   />
@@ -1415,7 +1413,7 @@ export function Dashboard({ idea, domains, team, pptSections }: DashboardProps) 
                       type="button"
                       style={{
                         width: "100%",
-                        background: "#6366f1",
+                        background: "#111111",
                         color: "#fff",
                         border: "none",
                         borderRadius: 9999,
@@ -1478,7 +1476,7 @@ export function Dashboard({ idea, domains, team, pptSections }: DashboardProps) 
                         type="button"
                         onClick={sendResearchChatMessage}
                         style={{
-                          background: "#7c3aed",
+                          background: "#007AFF",
                           color: "#fff",
                           border: "none",
                           borderRadius: 18,

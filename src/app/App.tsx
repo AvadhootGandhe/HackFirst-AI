@@ -33,11 +33,11 @@ export default function App() {
   const nav = (to: Page) => setPage(to);
 
   const pageVariants = {
-    initial: { opacity: 0, y: 20, filter: "blur(8px)" },
-    animate: { opacity: 1, y: 0, filter: "blur(0px)" },
-    exit: { opacity: 0, y: -20, filter: "blur(8px)" },
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -20 },
   };
-  const transition = { duration: 0.45, ease: [0.22, 1, 0.36, 1] as const };
+  const transition = { duration: 0.35, ease: [0.22, 1, 0.36, 1] as const };
 
   return (
     <div style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif", minHeight: "100vh" }}>
