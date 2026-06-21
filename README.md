@@ -68,6 +68,23 @@ This flow keeps the user experience responsive while enabling extensibility in b
 
 ---
 
+## 🚀 Tech Stack
+
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat-square&logo=tailwind-css&logoColor=white)
+![Radix UI](https://img.shields.io/badge/Radix_UI-000000?style=flat-square&logo=radix&logoColor=white)
+![Material UI](https://img.shields.io/badge/MUI-007FFF?style=flat-square&logo=mui&logoColor=white)
+
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![Uvicorn](https://img.shields.io/badge/Uvicorn-000000?style=flat-square&logo=python&logoColor=white)
+![Pydantic](https://img.shields.io/badge/Pydantic-44B7F3?style=flat-square&logo=python&logoColor=white)
+![LangChain](https://img.shields.io/badge/LangChain-2EB8F3?style=flat-square&logo=python&logoColor=white)
+
+---
+
 ## 🧠 Design Principles
 
 - **Modular**: Clear folder boundaries for UI, API, agents, and models.
